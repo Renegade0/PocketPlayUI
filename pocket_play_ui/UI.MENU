@@ -8136,11 +8136,11 @@ function magePageInfo()
 		if characters[id].hasSorcererBook then
 			return t("SPELLS_CAN_CAST_LABEL") .. ": " .. characters[id].mageDetails[currentSpellLevel].slotsRemaining .. "/" .. characters[id].mageDetails[currentSpellLevel].maxMemorized
 		else
-			return t("MEMORIZED_LABEL") .. ": " .. #bottomSpells .. "/" .. characters[id].mageDetails[currentSpellLevel].maxMemorized
+			return t("MEMORIZED_LABEL") --.. ": " .. #bottomSpells .. "/" .. characters[id].mageDetails[currentSpellLevel].maxMemorized
 		end
 	elseif bookMode == 1 then -- Sequencer/Contingency
 		return t("SPELLS_LABEL") .. " :" .. #bottomSpells .. "/" .. #bottomSpellsPlaceHolder
-
+    
 	end
 	return ""
 end
@@ -8587,6 +8587,7 @@ menu
 		text color '$'
 		align center center
 	}
+	
 	--label
 	--{
 	--	area 		210 59 446 30
@@ -9071,23 +9072,24 @@ menu
 	}
 
 
-	--label
-	--{
-	--	area 310 586 250 50
-	--	text lua "magePageInfo()"
-	--	text style "label"
-	--	rectangle 0
-	--}
-	
 	label
 	{
+		enabled "rgSpellDescString == ''"
 		area 701 166 500 36
-		text lua "Infinity_FetchString(11944)"
+		text lua "magePageInfo()"
 		text style "rg_trajan"
---		text color '5'
-		enabled "rgSpellDescString == '' and characters[id].hasSorcererBook == false"
 		text align center center
 	}
+	
+	--label
+	--{
+	--	area 701 166 500 36
+	--	text lua "Infinity_FetchString(11944)"
+	--	text style "rg_trajan"
+--	--	text color '5'
+	--	enabled "rgSpellDescString == '' and characters[id].hasSorcererBook == false"
+	--	text align center center
+	--}
 	label
 	{
 		area 170 166 500 36
