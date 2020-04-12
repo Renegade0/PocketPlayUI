@@ -1275,20 +1275,20 @@ menu
 		pad 30 5 30 5
 		action		"Infinity_PopMenu()"
 	}
-	button
-	{
-		area 16 690 368 70
-		bam RGPBUT1
-		ScaleToClip
-		text lua "partyImport.character[1].createdelete"
-		text style "rg_trajan"
-		text align center center
-		pad 30 5 30 5
-		action
-		"
-			createPartyScreen:OnCreateDeleteButtonClick(0)
-		"
-	}
+	--button
+	--{
+	--	area 16 690 368 70
+	--	bam RGPBUT1
+	--	ScaleToClip
+	--	text lua "partyImport.character[1].createdelete"
+	--	text style "rg_trajan"
+	--	text align center center
+	--	pad 30 5 30 5
+	--	action
+	--	"
+	--		createPartyScreen:OnCreateDeleteButtonClick(0)
+	--	"
+	--}
 }
 
 
