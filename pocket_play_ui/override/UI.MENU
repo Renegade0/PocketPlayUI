@@ -925,6 +925,7 @@ menu
 	ignoreEsc
 	onopen
 	"
+		Infinity_SetBackground('BACKGROUND')
 		if currentTab == 0 then
 			currentTab = 1
 		end
@@ -5769,6 +5770,7 @@ menu
 			if rgIsInEscMode == 0 then
 				e:GetActiveEngine():OnLeftPanelButtonClick(7)
 			end
+			Infinity_PushMenu('RIGHT_SIDEBAR_BOTTOM')
 		"
 	}
 	button
@@ -5853,6 +5855,7 @@ menu
 			if rgIsInEscMode == 0 then
 				e:GetActiveEngine():OnLeftPanelButtonClick(7)
 			end
+			Infinity_PopMenu('RIGHT_SIDEBAR_BOTTOM')
 		"
 	}
 	--button
@@ -5993,12 +5996,25 @@ menu
 	label
 	{
 		name 'rightSidebarBackground'
-		area 0 0 74 1
+		area 0 0 154 1
 		mosaic BLANK
 	}
 	button
 	{
-		area 0 8 71 102
+		area 0 7 80 102
+		enabled "worldScreen == e:GetActiveEngine()"
+		toggle highlightButtonToggle
+		bam rgpsrch
+		ScaleToClip
+		clickable lua "sidebarsGreyed ~= 1"
+		action
+		"
+			worldScreen:SetHighlightEnabled(highlightButtonToggle == 1)
+		"
+	}
+	button
+	{
+		area 80 8 71 102
 		portrait 0
 		bam rgpporl
 		ScaleToClip
@@ -6017,7 +6033,7 @@ menu
 	}
 	button
 	{
-		area 0 111 71 102
+		area 80 111 71 102
 		portrait 1
 		bam rgpporl
 		ScaleToClip
@@ -6036,7 +6052,7 @@ menu
 	}
 	button
 	{
-		area 0 214 71 102
+		area 80 214 71 102
 		portrait 2
 		bam rgpporl
 		ScaleToClip
@@ -6055,7 +6071,7 @@ menu
 	}
 	button
 	{
-		area 0 317 71 102
+		area 80 317 71 102
 		portrait 3
 		bam rgpporl
 		ScaleToClip
@@ -6074,7 +6090,7 @@ menu
 	}
 	button
 	{
-		area 0 420 71 102
+		area 80 420 71 102
 		portrait 4
 		bam rgpporl
 		ScaleToClip
@@ -6093,7 +6109,7 @@ menu
 	}
 	button
 	{
-		area 0 523 71 102
+		area 80 523 71 102
 		portrait 5
 		bam rgpporl
 		ScaleToClip
@@ -6499,6 +6515,7 @@ menu
 	
 	onOpen 
 	"
+		Infinity_SetBackground('BACKGROUND')
 		Infinity_ActivateInventory()
 		pushSidebars()
 		doubleClickEventScheduled = nil
@@ -8258,7 +8275,7 @@ menu
 		--elseif state == 0 then
 		--	Infinity_PushMenu('START_MAIN')
 		--end
-		--Infinity_SetBackground('BACKGROUND')
+		Infinity_SetBackground('BACKGROUND')
 		canContinue = startEngine:HasGameToContinue()
 		--startEngine:OnSoAButtonClick(true)
 	"
@@ -8974,6 +8991,7 @@ menu
 	modal lua "bookMode == 1"
 
 	onopen "
+		Infinity_SetBackground('BACKGROUND')
 		if bookMode == 0 then
 			Infinity_PushMenu('LEFT_SIDEBAR')
 			Infinity_PushMenu('RIGHT_SIDEBAR')
@@ -10003,6 +10021,7 @@ menu
 
 	onopen 
 	"
+		Infinity_SetBackground('BACKGROUND')
 		showPriestMemorizationFlash = false
 		pushSidebars()
 		prpage = nil
@@ -10422,6 +10441,78 @@ menu
 		enabled "priestBookEnabled == false"
 	}
 }
+
+menu
+{
+	name 'RG_JOURNAL_BUTTONS'
+	align right top
+	button --prev chapter
+	{
+		enabled "rgEscModeJournal == 1"
+		area		0 3 86 124
+		bam		RGPJBUT
+		sequence	3
+		ScaleToClip
+		action
+		"
+			incrChapter(1);
+		"	
+	}
+	button
+	{
+		enabled "rgEscModeJournal == 1"
+		area		0 128 86 124
+		bam		RGPJBUT
+		sequence	4
+		ScaleToClip
+		action
+		"
+			incrChapter(-1);
+		"	
+	}
+	button
+	{
+		enabled "rgEscModeJournal == 1"
+		area		0 253 86 124
+		bam		RGPJBUT
+		sequence	0
+		ScaleToClip
+		glow lua "journalMode == const.JOURNAL_MODE_QUESTS and rgIsCurrentQuests == 1"
+		action
+		"
+			journalMode = const.JOURNAL_MODE_QUESTS
+			rgIsCurrentQuests = 1
+		"	
+	}
+	button
+	{
+		enabled "rgEscModeJournal == 1"
+		area		0 378 86 124
+		bam		RGPJBUT
+		sequence	1
+		ScaleToClip
+		glow lua "journalMode == const.JOURNAL_MODE_QUESTS and rgIsCurrentQuests == 0"
+		action
+		"
+			journalMode = const.JOURNAL_MODE_QUESTS
+			rgIsCurrentQuests = 0
+		"	
+	}
+	button
+	{
+		enabled "rgEscModeJournal == 1"
+		area		0 503 86 124
+		bam		RGPJBUT
+		sequence	2
+		ScaleToClip
+		glow lua "journalMode == const.JOURNAL_MODE_JOURNAL"
+		action
+		"
+			journalMode = const.JOURNAL_MODE_JOURNAL
+		"	
+	}
+}
+
 `
 	versionString = ""
 	function canClickSaveLoad()
@@ -10465,10 +10556,18 @@ menu
 		chapter = math.max(0,Infinity_GetMaxChapterPage());
 		Infinity_PopMenu('RIGHT_SIDEBAR')
 		Infinity_PushMenu('RIGHT_SIDEBAR_BOTTOM')
+		if rgEscModeJournal == 0 then
+			Infinity_PopMenu('RIGHT_SIDEBAR_BOTTOM')
+			Infinity_PopMenu('RG_JOURNAL_BUTTONS')
+		else
+			Infinity_PushMenu('RIGHT_SIDEBAR_BOTTOM')
+			Infinity_PushMenu('RG_JOURNAL_BUTTONS')
+		end
 	"
 	onClose "
 		rgIsInEscMode = 0
 		popSidebars()
+		Infinity_PopMenu('RG_JOURNAL_BUTTONS')
 		"
 	label
 	{
@@ -10495,71 +10594,7 @@ menu
 		text align right center
 		text color '$'
 	}
-	button --prev chapter
-	{
-		enabled "rgEscModeJournal == 1"
-		area		1278 3 86 124
-		bam		RGPJBUT
-		sequence	3
-		ScaleToClip
-		action
-		"
-			incrChapter(1);
-		"	
-	}
-	button
-	{
-		enabled "rgEscModeJournal == 1"
-		area		1278 128 86 124
-		bam		RGPJBUT
-		sequence	4
-		ScaleToClip
-		action
-		"
-			incrChapter(-1);
-		"	
-	}
-	button
-	{
-		enabled "rgEscModeJournal == 1"
-		area		1278 253 86 124
-		bam		RGPJBUT
-		sequence	0
-		ScaleToClip
-		glow lua "journalMode == const.JOURNAL_MODE_QUESTS and rgIsCurrentQuests == 1"
-		action
-		"
-			journalMode = const.JOURNAL_MODE_QUESTS
-			rgIsCurrentQuests = 1
-		"	
-	}
-	button
-	{
-		enabled "rgEscModeJournal == 1"
-		area		1278 378 86 124
-		bam		RGPJBUT
-		sequence	1
-		ScaleToClip
-		glow lua "journalMode == const.JOURNAL_MODE_QUESTS and rgIsCurrentQuests == 0"
-		action
-		"
-			journalMode = const.JOURNAL_MODE_QUESTS
-			rgIsCurrentQuests = 0
-		"	
-	}
-	button
-	{
-		enabled "rgEscModeJournal == 1"
-		area		1278 503 86 124
-		bam		RGPJBUT
-		sequence	2
-		ScaleToClip
-		glow lua "journalMode == const.JOURNAL_MODE_JOURNAL"
-		action
-		"
-			journalMode = const.JOURNAL_MODE_JOURNAL
-		"	
-	}
+	
 	list
 	{
 		column { 
@@ -13112,7 +13147,7 @@ menu
 menu
 {
 	name "WORLD_ACTIONBAR"
-	align center bottom
+	align right bottom
 	onOpen 
 	"
 		toolbarTop = 60
@@ -13897,18 +13932,7 @@ menu
 		--Infinity_SetOffset('WORLD_QUICKLOOT',0, -toolbarTop)
 	"
 	
-	button
-	{
-		area 1211 7 80 102
-		toggle highlightButtonToggle
-		bam rgpsrch
-		ScaleToClip
-		clickable lua "sidebarsGreyed ~= 1"
-		action
-		"
-			worldScreen:SetHighlightEnabled(highlightButtonToggle == 1)
-		"
-	}
+	
 	button
 	{
 		area 928 7 74 74
@@ -14444,6 +14468,7 @@ menu
 	name 'SAVE'
 	align center center
 	ignoreEsc
+	onOpen "Infinity_SetBackground('BACKGROUND')"
 	label
 	{
 		area	0 0 1365 768
@@ -15085,14 +15110,15 @@ menu
 			--Infinity_SetArea('messagesRect',5,nil,nil,nil)
 			--Infinity_SetArea('worldMessageBox',16,nil,nil,nil)
 			local x,y,w,h = Infinity_GetArea('messagesRect')
-			if (x == 1500) then
+			local screenWidth, screenHeight = Infinity_GetScreenSize()
+			if (x == screenWidth+5) then
 				Infinity_SetArea('messagesRect',5,nil,nil,nil)
 				Infinity_SetArea('worldMessageBox',16,nil,nil,nil)
-				Infinity_SetArea('worldLastMessageBox',1500,nil,nil,nil)
+				Infinity_SetArea('worldLastMessageBox',screenWidth+5,nil,nil,nil)
 			else
-				Infinity_SetArea('messagesRect',1500,nil,nil,nil)
-				Infinity_SetArea('worldMessageBox',1500,nil,nil,nil)
-				Infinity_SetArea('worldLastMessageBox',5,nil,nil,nil)
+				Infinity_SetArea('messagesRect',screenWidth+5,nil,nil,nil)
+				Infinity_SetArea('worldMessageBox',screenWidth+5,nil,nil,nil)
+				Infinity_SetArea('worldLastMessageBox',5,screenHeight-138,nil,nil)
 			end
 		"
 	}
@@ -15529,8 +15555,8 @@ end
 menu
 {
 	name 'WORLD_DIALOG_CONFIRM'
-	offset -35 -40
-	align right bottom
+	offset 558 256
+	align center center
 	ignoreEsc
 	button
 	{
@@ -20065,7 +20091,7 @@ menu
 	label
 	{
 		area 0 0 3840 2160
-		mosaic 'GUIBG'
+		fill 0 0 0 255
 	}
 }
 
