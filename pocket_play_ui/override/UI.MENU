@@ -8966,6 +8966,13 @@ function rgUnmemorizeMageSpell(num)
 		currentBottomSpell = 0
 	end
 end
+function rgCastableOpacity(num)
+	if bottomSpells[num].castable == 0 then
+		return 155
+	else
+		return 255
+	end
+end
 
 memorizationFlashes = 
 {
@@ -15033,7 +15040,7 @@ menu
 	label
 	{
 		name 'messagesRect'
-		area 1500 92 351 583
+		area 2000 92 351 583
 		bam rgpmess
 		ScaleToClip
 	}
@@ -15068,7 +15075,7 @@ menu
 			}
 		}
 		name "worldMessageBox"
-		area 1500 99 334 569
+		area 2000 99 334 569
 		rowheight dynamic
 		table "combatLog"
 		hideHighlight
@@ -15111,7 +15118,7 @@ menu
 			--Infinity_SetArea('worldMessageBox',16,nil,nil,nil)
 			local x,y,w,h = Infinity_GetArea('messagesRect')
 			local screenWidth, screenHeight = Infinity_GetScreenSize()
-			if (x == screenWidth+5) then
+			if (x == screenWidth+5 or x == 2000) then
 				Infinity_SetArea('messagesRect',5,nil,nil,nil)
 				Infinity_SetArea('worldMessageBox',16,nil,nil,nil)
 				Infinity_SetArea('worldLastMessageBox',screenWidth+5,nil,nil,nil)
