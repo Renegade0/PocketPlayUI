@@ -16177,27 +16177,27 @@ menu
 		ScaleToClip
         action "IncPortraitArray(); rgGlow = 0"
     }
-	label { area 208 86 173 272 bitmap lua "GetPortrait(1)" }
-    label { area 402 86 173 272 bitmap lua "GetPortrait(2)" }
-    label { area 596 86 173 272 bitmap lua "GetPortrait(3)" }
-    label { area 790 86 173 272 bitmap lua "GetPortrait(4)" }
-    label { area 984 86 173 272 bitmap lua "GetPortrait(5)" }
-    label { area 208 385 173 272 bitmap lua "GetPortrait(6)" }
-    label { area 402 385 173 272 bitmap lua "GetPortrait(7)" }
-    label { area 596 385 173 272 bitmap lua "GetPortrait(8)" }
-    label { area 790 385 173 272 bitmap lua "GetPortrait(9)" }
-    label { area 984 385 173 272 bitmap lua "GetPortrait(10)" }
-	
-	button { area 201 76 186 292  bam rgpchpor ScaleToClip toggle togglePort1 action  "togglePortrait1();  OnPortraitArrayClick(1); rgGlow = 1"  sequence lua "RgSelectedSPortSequence(1)" }
-    button { area 395 76 186 292  bam rgpchpor ScaleToClip toggle togglePort2 action  "togglePortrait2();  OnPortraitArrayClick(2); rgGlow = 2"  sequence lua "RgSelectedSPortSequence(2)" }
-    button { area 589 76 186 292  bam rgpchpor ScaleToClip toggle togglePort3 action  "togglePortrait3();  OnPortraitArrayClick(3); rgGlow = 3"  sequence lua "RgSelectedSPortSequence(3)" }
-    button { area 783 76 186 292  bam rgpchpor ScaleToClip toggle togglePort4 action  "togglePortrait4();  OnPortraitArrayClick(4); rgGlow = 4"  sequence lua "RgSelectedSPortSequence(4)" }
-    button { area 977 76 186 292  bam rgpchpor ScaleToClip toggle togglePort5 action  "togglePortrait5();  OnPortraitArrayClick(5); rgGlow = 5"  sequence lua "RgSelectedSPortSequence(5)" }
-    button { area 201 375 186 292 bam rgpchpor ScaleToClip toggle togglePort6 action  "togglePortrait6();  OnPortraitArrayClick(6); rgGlow = 6"  sequence lua "RgSelectedSPortSequence(6)" }
-    button { area 395 375 186 292 bam rgpchpor ScaleToClip toggle togglePort7 action  "togglePortrait7();  OnPortraitArrayClick(7); rgGlow = 7"  sequence lua "RgSelectedSPortSequence(7)" }
-    button { area 589 375 186 292 bam rgpchpor ScaleToClip toggle togglePort8 action  "togglePortrait8();  OnPortraitArrayClick(8); rgGlow = 8"  sequence lua "RgSelectedSPortSequence(8)" }
-    button { area 783 375 186 292 bam rgpchpor ScaleToClip toggle togglePort9 action  "togglePortrait9();  OnPortraitArrayClick(9); rgGlow = 9"  sequence lua "RgSelectedSPortSequence(9)" }
-    button { area 977 375 186 292 bam rgpchpor ScaleToClip toggle togglePort10 action "togglePortrait10(); OnPortraitArrayClick(10) rgGlow = 10"  sequence lua "RgSelectedSPortSequence(10)" }
+	label { area 201 76 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(1)" }
+    label { area 395 76 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(2)" }
+    label { area 589 76 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(3)" }
+    label { area 783 76 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(4)" }
+    label { area 977 76 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(5)" }
+    label { area 201 375 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(6)" }
+    label { area 395 375 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(7)" }
+    label { area 589 375 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(8)" }
+    label { area 783 375 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(9)" }
+    label { area 977 375 186 292 bam rgpchpor  ScaleToClip sequence lua "RgSelectedSPortSequence(10)" }
+
+	button { area 208 86 173 272  bitmap lua "GetPortrait(1)" toggle togglePort1 action  "togglePortrait1();  OnPortraitArrayClick(1); rgGlow = 1" }
+    button { area 402 86 173 272  bitmap lua "GetPortrait(2)" toggle togglePort2 action  "togglePortrait2();  OnPortraitArrayClick(2); rgGlow = 2" }
+    button { area 596 86 173 272  bitmap lua "GetPortrait(3)" toggle togglePort3 action  "togglePortrait3();  OnPortraitArrayClick(3); rgGlow = 3" }
+    button { area 790 86 173 272  bitmap lua "GetPortrait(4)" toggle togglePort4 action  "togglePortrait4();  OnPortraitArrayClick(4); rgGlow = 4" }
+    button { area 984 86 173 272  bitmap lua "GetPortrait(5)" toggle togglePort5 action  "togglePortrait5();  OnPortraitArrayClick(5); rgGlow = 5" }
+    button { area 208 385 173 272 bitmap lua "GetPortrait(6)" toggle togglePort6 action  "togglePortrait6();  OnPortraitArrayClick(6); rgGlow = 6" }
+    button { area 402 385 173 272 bitmap lua "GetPortrait(7)" toggle togglePort7 action  "togglePortrait7();  OnPortraitArrayClick(7); rgGlow = 7" }
+    button { area 596 385 173 272 bitmap lua "GetPortrait(8)" toggle togglePort8 action  "togglePortrait8();  OnPortraitArrayClick(8); rgGlow = 8" }
+    button { area 790 385 173 272 bitmap lua "GetPortrait(9)" toggle togglePort9 action  "togglePortrait9();  OnPortraitArrayClick(9); rgGlow = 9" }
+    button { area 984 385 173 272 bitmap lua "GetPortrait(10)" toggle togglePort10 action "togglePortrait10(); OnPortraitArrayClick(10) rgGlow = 10" }
 	
 	--label
     --{
@@ -25446,4 +25446,4 @@ menu
 			currentButtonHelp = 25 + buttonArray:GetButtonType(11)
 		"
 	}
-}
+}
