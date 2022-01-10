@@ -10349,7 +10349,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber].castable == 0" } } --opacity lua "rgCastableOpacity(rowNumber)" 
 		area 701 220 500 125
 		name "memorizedListPriest"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -15101,7 +15101,7 @@ menu
 		text style "normal"
 		text point 12
 		text shadow 1
-		scrollbar	''
+		scrollbar	'rgpempty'
 		--scrollbar hide lua "1"
 		bam rgpwmes
 		ScaleToClip
@@ -15348,7 +15348,7 @@ menu
 		area 24 22 1079 73
 		text lua "worldNPCDialogText"
 		text style "gamelog"
-		scrollbar	''
+		scrollbar	'rgpempty'
 	}
 	text
 	{
