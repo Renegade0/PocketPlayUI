@@ -221,6 +221,16 @@ combatLog = {}
 
 currentPanelID = 0
 
+
+function rgIsUltraWide()
+	local w, h = Infinity_GetScreenSize()
+	if (w > 1550) then
+		return false
+	else
+		return true
+	end
+end
+
 function displayTHAC()
 	thactxt = ''
 	thactxt =  characters[currentID].THAC0.current
@@ -374,7 +384,7 @@ function rgFetchMageClassString(class)
 	end
 end
 function rgFetchFighterClassString(class)
-    if rgGetClassName(class) == rgGetGameEngineString(1076,1076,1076,1076) then
+    if rgGetClassName(class) == rgFirstLetterUpper(rgGetGameEngineString(1076,1076,1076,1076)) then
 		return true
 	else
 		return false
@@ -432,6 +442,14 @@ function rgFetchRogueClassString(class)
 	end
 end
 
+listXPmage = { 0,2500,5000,10000,20000,40000,60000,90000,135000,250000,375000,750000,1125000,1500000,1875000,2250000,2625000,3000000,3375000,3750000,4125000,4500000,4875000,5250000,5625000,6000000,6375000,6750000,7125000,7500000,7875000,8250000,8625000,9000000,9375000,9750000,10125000,10500000,10875000,11250000 }
+listXPfighter = { 0,2000,4000,8000,16000,32000,64000,125000,250000,500000,750000,1000000,1250000,1500000,1750000,2000000,2250000,2500000,2750000,3000000,3250000,3500000,3750000,4000000,4250000,4500000,4750000,5000000,5250000,5500000,5750000,6000000,6250000,6500000,6750000,7000000,7250000,7500000,7750000,8000000 }
+listXPranger = { 0,2250,4500,9000,18000,36000,75000,150000,300000,600000,900000,1200000,1500000,1800000,2100000,2400000,2700000,3000000,3300000,3600000,3900000,4200000,4500000,4800000,5100000,5400000,5700000,6000000,6300000,6600000,6900000,7200000,7500000,7800000,8100000,8400000,8700000,9000000,9300000,9600000 }
+listXPpriest = { 0,1500,3000,6000,13000,27500,55000,110000,225000,450000,675000,900000,1125000,1350000,1575000,1800000,2025000,2250000,2475000,2700000,2925000,3150000,3375000,3600000,3825000,4050000,4275000,4500000,4725000,4950000,5175000,5400000,5625000,5850000,6075000,6300000,6525000,6750000,6975000,7200000 }
+listXPdruid = { 0,2000,4000,7500,12500,20000,35000,60000,90000,125000,200000,300000,750000,1500000,3000000,3150000,3300000,3450000,3600000,3750000,3900000,4150000,4400000,4700000,5000000,5500000,6000000,6500000,7000000,7500000,8000000,8500000,9000000,9500000,10000000,10500000,11000000,11500000,12000000,12500000 }
+listXProgue = { 0,1250,2500,5000,10000,20000,40000,70000,110000,160000,220000,440000,660000,880000,1100000,1320000,1540000,1760000,1980000,2200000,2420000,2640000,2860000,3080000,3300000,3520000,3740000,3960000,4180000,4400000,4620000,4840000,5060000,5280000,5500000,5720000,5940000,6160000,6380000,6600000 }
+	
+
 --instr = string.upper(string.sub(instr, 1, 1)) .. string.sub(instr, 2)
 
 function updateAttrTable()
@@ -445,13 +463,6 @@ function updateAttrTable()
 	listClassXPs1 = { }
 	listClassXPs2 = { }
 	listClassXPs3 = { }
-	
-	listXPmage = { 0,2500,5000,10000,20000,40000,60000,90000,135000,250000,375000,750000,1125000,1500000,1875000,2250000,2625000,3000000,3375000,3750000,4125000,4500000,4875000,5250000,5625000,6000000,6375000,6750000,7125000,7500000,7875000,8250000,8625000,9000000,9375000,9750000,10125000,10500000,10875000,11250000 }
-	listXPfighter = { 0,2000,4000,8000,16000,32000,64000,125000,250000,500000,750000,1000000,1250000,1500000,1750000,2000000,2250000,2500000,2750000,3000000,3250000,3500000,3750000,4000000,4250000,4500000,4750000,5000000,5250000,5500000,5750000,6000000,6250000,6500000,6750000,7000000,7250000,7500000,7750000,8000000 }
-	listXPranger = { 0,2250,4500,9000,18000,36000,75000,150000,300000,600000,900000,1200000,1500000,1800000,2100000,2400000,2700000,3000000,3300000,3600000,3900000,4200000,4500000,4800000,5100000,5400000,5700000,6000000,6300000,6600000,6900000,7200000,7500000,7800000,8100000,8400000,8700000,9000000,9300000,9600000 }
-	listXPpriest = { 0,1500,3000,6000,13000,27500,55000,110000,225000,450000,675000,900000,1125000,1350000,1575000,1800000,2025000,2250000,2475000,2700000,2925000,3150000,3375000,3600000,3825000,4050000,4275000,4500000,4725000,4950000,5175000,5400000,5625000,5850000,6075000,6300000,6525000,6750000,6975000,7200000 }
-	listXPdruid = { 0,2000,4000,7500,12500,20000,35000,60000,90000,125000,200000,300000,750000,1500000,3000000,3150000,3300000,3450000,3600000,3750000,3900000,4150000,4400000,4700000,5000000,5500000,6000000,6500000,7000000,7500000,8000000,8500000,9000000,9500000,10000000,10500000,11000000,11500000,12000000,12500000 }
-	listXProgue = { 0,1250,2500,5000,10000,20000,40000,70000,110000,160000,220000,440000,660000,880000,1100000,1320000,1540000,1760000,1980000,2200000,2420000,2640000,2860000,3080000,3300000,3520000,3740000,3960000,4180000,4400000,4620000,4840000,5060000,5280000,5500000,5720000,5940000,6160000,6380000,6600000 }
 	
 	if rgFetchMageClassString(1) == true then
 		listClassXPs1 = listXPmage
@@ -469,33 +480,33 @@ function updateAttrTable()
 	
 	if characters[currentID].classlevel.second ~= nil then
 		if rgFetchMageClassString(2) == true then
-			listClassXPs1 = listXPmage
+			listClassXPs2 = listXPmage
 		elseif rgFetchFighterClassString(2) == true then
-			listClassXPs1 = listXPfighter
+			listClassXPs2 = listXPfighter
 		elseif rgFetchRangerClassString(2) == true then
-			listClassXPs1 = listXPranger
+			listClassXPs2 = listXPranger
 		elseif rgFetchPriestClassString(2) == true then
-			listClassXPs1 = listXPpriest
+			listClassXPs2 = listXPpriest
 		elseif rgFetchDruidClassString(2) == true then
-			listClassXPs1 = listXPdruid
+			listClassXPs2 = listXPdruid
 		elseif rgFetchRogueClassString(2) == true then
-			listClassXPs1 = listXProgue
+			listClassXPs2 = listXProgue
 		end
 	end
 	
 	if characters[currentID].classlevel.third ~= nil then
 		if rgFetchMageClassString(3) == true then
-			listClassXPs1 = listXPmage
+			listClassXPs3 = listXPmage
 		elseif rgFetchFighterClassString(3) == true then
-			listClassXPs1 = listXPfighter
+			listClassXPs3 = listXPfighter
 		elseif rgFetchRangerClassString(3) == true then
-			listClassXPs1 = listXPranger
+			listClassXPs3 = listXPranger
 		elseif rgFetchPriestClassString(3) == true then
-			listClassXPs1 = listXPpriest
+			listClassXPs3 = listXPpriest
 		elseif rgFetchDruidClassString(3) == true then
-			listClassXPs1 = listXPdruid
+			listClassXPs3 = listXPdruid
 		elseif rgFetchRogueClassString(3) == true then
-			listClassXPs1 = listXProgue
+			listClassXPs3 = listXProgue
 		end
 	end
 	
@@ -584,7 +595,11 @@ function updateAttrTable()
 			table.insert(listItems, { '233', '^D' .. t('STATUS_EFFECTS_LABEL') .. ':' .. '^B'})
 		end
 		for k, v in pairs(characters[currentID].statusEffects) do
-			table.insert(listItems, {v.current, '    ' .. Infinity_FetchString(v.strRef)})
+			if v.current == 0 then --haste exception
+				table.insert(listItems, {103, '    ' .. Infinity_FetchString(v.strRef)})
+			else
+				table.insert(listItems, {v.current, '    ' .. Infinity_FetchString(v.strRef)})
+			end
 		end
 		if statusEffects[1] ~= nil then
 			table.insert(listItems, { '233', '' })
@@ -641,14 +656,14 @@ function updateAttrTable()
 		
 	elseif currentTab == 4 then
 		listItems = { 
-		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.bestenemy.strRef) .. '^B\n' .. characters[currentID].Stats.bestenemy.current .. '\n'},
-		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.timespent.strRef) .. '^B\n' .. characters[currentID].Stats.timespent.current .. '\n'},
-		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.favspell.strRef) .. '^B\n' .. characters[currentID].Stats.favspell.current .. '\n'},
-		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.favweapon.strRef) .. '^B\n' .. characters[currentID].Stats.favweapon.current .. '\n'},
 		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.partychapxp.strRef) .. '^B\n' .. t('CHAPTER_LABEL') .. ': ' ..  characters[currentID].Stats.partychapxp.current .. '% / ' .. t('GAME_LABEL') .. ': ' ..  characters[currentID].Stats.partygamexp.current .. '%\n'},
 		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.partychapkills.strRef) .. '^B\n' .. t('CHAPTER_LABEL') .. ': ' .. characters[currentID].Stats.partychapkills.current .. '% / ' .. t('GAME_LABEL') .. ': ' ..  characters[currentID].Stats.partygamekills.current .. '%\n'},
 		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.chapxpvalue.strRef) .. '^B\n' .. t('CHAPTER_LABEL') .. ': ' .. characters[currentID].Stats.chapxpvalue.current .. ' / ' .. t('GAME_LABEL') .. ': ' ..  characters[currentID].Stats.gamexpvalue.current .. '\n'},
-		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.chapkills.strRef) .. '^B\n' .. t('CHAPTER_LABEL') .. ': ' .. characters[currentID].Stats.chapkills.current .. ' / ' .. t('GAME_LABEL') .. ': ' ..  characters[currentID].Stats.gamekills.current},
+		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.chapkills.strRef) .. '^B\n' .. t('CHAPTER_LABEL') .. ': ' .. characters[currentID].Stats.chapkills.current .. ' / ' .. t('GAME_LABEL') .. ': ' ..  characters[currentID].Stats.gamekills.current .. '\n'},
+		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.bestenemy.strRef) .. '^B\n' .. characters[currentID].Stats.bestenemy.current .. '\n'},
+		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.timespent.strRef) .. '^B\n' .. characters[currentID].Stats.timespent.current .. '\n'},
+		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.favspell.strRef) .. '^B\n' .. characters[currentID].Stats.favspell.current .. '\n'},
+		{ '233', '^D' .. Infinity_FetchString(characters[currentID].Stats.favweapon.strRef) .. '^B\n' .. characters[currentID].Stats.favweapon.current },
 		}
 	elseif currentTab == 5 then
 		listItems = { 
@@ -1270,7 +1285,7 @@ menu
 				bam            'STATES'
 				sequence    lua "listItems[rowNumber][1]"
 				text align	left center
-				enabled "rowNumber ~= 233"
+				enabled "listItems[rowNumber][1] ~= '233'"
 				--ScaleToClip
 			}
 			label
@@ -5889,28 +5904,14 @@ menu
 {
 	name 'LEFT_SIDEBAR_BOTTOM'
 	align left bottom
-	offset 0 -22
+	offset 0 0
 	--combined height of these buttons makes a menu with height = 231, menu is placed into lower left. y pos is offset from top of this menu.
 	ignoreEsc
-	button
+	label
 	{
-		area 3 0 0 0
-		enabled "worldScreen == e:GetActiveEngine()"
-		bam GUILS10
-		sequence 15
-		tooltip lua "getTooltipWithHotkey(28,31813)"
-		tooltip force lua "sidebarForceTooltips == 1"
-		tooltip force top
-		clickable lua "sidebarsGreyed ~= 1"
-		action
-		"
-			worldScreen:OnQuickSaveButtonClick(false)
-		"
-		actionAlt
-		"
-			worldScreen:OnQuickSaveButtonClick(true)
-		"
+		area 0 0 1 1
 	}
+	
 	--button
 	--{
 	--	area 3 56 73 55
@@ -6020,7 +6021,7 @@ menu
 		ScaleToClip
 		enabled "Infinity_GetNumCharacters() > 0"
 		glow lua "draggedPortrait and draggedPortrait ~= 0"
-		action "Infinity_OnPortraitLClick(0)"
+		action "Infinity_OnPortraitLClick(0) rgAutoIdentifyItems()"
 		actionAlt "Infinity_OnPortraitRClick(0)"
 		actionDbl "Infinity_OnPortraitDblClick(0)"
 		actiondrag "Infinity_SwapWithPortrait(0)"
@@ -6039,7 +6040,7 @@ menu
 		ScaleToClip
 		enabled "Infinity_GetNumCharacters() > 1"
 		glow lua "draggedPortrait and draggedPortrait ~= 1"
-		action "Infinity_OnPortraitLClick(1)"
+		action "Infinity_OnPortraitLClick(1) rgAutoIdentifyItems()"
 		actionAlt "Infinity_OnPortraitRClick(1)"
 		actionDbl "Infinity_OnPortraitDblClick(1)"
 		actiondrag "Infinity_SwapWithPortrait(1)"
@@ -6058,7 +6059,7 @@ menu
 		ScaleToClip
 		enabled "Infinity_GetNumCharacters() > 2"
 		glow lua "draggedPortrait and draggedPortrait ~= 2"
-		action "Infinity_OnPortraitLClick(2)"
+		action "Infinity_OnPortraitLClick(2) rgAutoIdentifyItems()"
 		actionAlt "Infinity_OnPortraitRClick(2)"
 		actionDbl "Infinity_OnPortraitDblClick(2)"
 		actiondrag "Infinity_SwapWithPortrait(2)"
@@ -6077,7 +6078,7 @@ menu
 		ScaleToClip
 		enabled "Infinity_GetNumCharacters() > 3"
 		glow lua "draggedPortrait and draggedPortrait ~= 3"
-		action "Infinity_OnPortraitLClick(3)"
+		action "Infinity_OnPortraitLClick(3) rgAutoIdentifyItems()"
 		actionAlt "Infinity_OnPortraitRClick(3)"
 		actionDbl "Infinity_OnPortraitDblClick(3)"
 		actiondrag "Infinity_SwapWithPortrait(3)"
@@ -6096,7 +6097,7 @@ menu
 		ScaleToClip
 		enabled "Infinity_GetNumCharacters() > 4"
 		glow lua "draggedPortrait and draggedPortrait ~= 4"
-		action "Infinity_OnPortraitLClick(4)"
+		action "Infinity_OnPortraitLClick(4) rgAutoIdentifyItems()"
 		actionAlt "Infinity_OnPortraitRClick(4)"
 		actionDbl "Infinity_OnPortraitDblClick(4)"
 		actiondrag "Infinity_SwapWithPortrait(4)"
@@ -6115,7 +6116,7 @@ menu
 		ScaleToClip
 		enabled "Infinity_GetNumCharacters() > 5"
 		glow lua "draggedPortrait and draggedPortrait ~= 5"
-		action "Infinity_OnPortraitLClick(5)"
+		action "Infinity_OnPortraitLClick(5) rgAutoIdentifyItems()"
 		actionAlt "Infinity_OnPortraitRClick(5)"
 		actionDbl "Infinity_OnPortraitDblClick(5)"
 		actiondrag "Infinity_SwapWithPortrait(5)"
@@ -6157,6 +6158,17 @@ menu
 			e:GetActiveEngine():OnLeftPanelButtonClick(0)
 		"
 	}
+	--button
+	--{
+	--	enabled "storeScreen == e:GetActiveEngine()"
+	--	area 58 0 86 137
+	--	bam RGPBTCLS
+	--	sequence 0
+	--	action
+	--	"
+	--		storeScreen:OnMainDoneButtonClick()
+	--	"
+	--}
 	label
 	{
 		enabled "worldScreen == e:GetActiveEngine()"
@@ -6505,6 +6517,26 @@ function getInventoryDamage()
 	end
 	return str
 end
+function rgAutoIdentifyItems()
+if e:GetActiveEngine() == inventoryScreen then
+	Infinity_CheckItemIdentify(characters[id].equipment.group0.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group1.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group2.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group3.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group4.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group5.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group6.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group7.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group8.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group9.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group10.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group11.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group12.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group13.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group14.id)
+	Infinity_CheckItemIdentify(characters[id].equipment.group15.id)
+end
+end
 
 `
 menu
@@ -6519,13 +6551,14 @@ menu
 		Infinity_ActivateInventory()
 		pushSidebars()
 		doubleClickEventScheduled = nil
-
+		
 		for i = 1, Infinity_GetMaxGroundPage()+1 do
 			fakeItemList[i] = 1
 		end
 		currentFakePage = Infinity_GetCurrentGroundPage()
 		currentMaxFakePages = Infinity_GetMaxGroundPage()+1
 		abilitiesDetails = 0
+		rgAutoIdentifyItems()
 	"
 	onClose 
 	"
@@ -8241,7 +8274,7 @@ function rgGetGameEngineString(bg1,sod,bg2,iwd)
 		return Infinity_FetchString(sod)
 	elseif eng == 2 then 
 		return Infinity_FetchString(bg2)
-	elseif eng == 3then 
+	elseif eng == 3 then 
 		return Infinity_FetchString(iwd)
 	end
 end
@@ -8939,6 +8972,9 @@ function rgMemorizeMageSpell(num,txtList)
 				createMageMemorizationSparkle(0, 0, 100, 100, txtList, -1)
 				Infinity_PlaySound('GAM_24')
 				showMageMemorizationFlash = true
+			else
+				rgSpellDescString = characters[id].mageSpells[currentSpellLevel][currentBookSpell+num].description 
+				rgSpellIndex = currentBookSpell+num
 			end
 			mageScreen:MemorizeSpell( bookSpells[currentBookSpell+num].level, bookSpells[currentBookSpell+num].index )
 		elseif bookMode == 1 and #bottomSpells < #bottomSpellsPlaceHolder then
@@ -8968,7 +9004,7 @@ function rgUnmemorizeMageSpell(num)
 end
 function rgCastableOpacity(num)
 	if bottomSpells[num].castable == 0 then
-		return 155
+		return 135
 	else
 		return 255
 	end
@@ -9511,7 +9547,7 @@ menu
 	
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber)" } }
 		area 701 220 500 125
 		name 		"memorizedListMage"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -9522,7 +9558,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+4].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+4)" } }
 		area 701 345 500 125
 		name 		"memorizedListMage1"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -9533,7 +9569,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+8].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+8)" } }
 		area 701 470 500 125
 		name 		"memorizedListMage2"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -9544,7 +9580,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+12].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+12)" } }
 		area 701 595 500 125
 		name 		"memorizedListMage3"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10001,6 +10037,8 @@ function rgMemorizePriestSpell(num,txtList)
 			createPriestMemorizationSparkle(2, 0, 100, 100, txtList, -1)
 			Infinity_PlaySound('GAM_24')
 			showPriestMemorizationFlash = true
+		else
+			rgSpellDescString = characters[id].priestSpells[currentSpellLevel][currentBookSpell+num].description
 		end
 		priestScreen:MemorizeSpell( characters[id].priestSpells[currentSpellLevel][currentBookSpell+num].level, characters[id].priestSpells[currentSpellLevel][currentBookSpell+num].index )
 	end
@@ -10349,7 +10387,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber].castable == 0" } } --opacity lua "rgCastableOpacity(rowNumber)" 
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber)" } }
 		area 701 220 500 125
 		name "memorizedListPriest"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10361,7 +10399,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+4].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+4)" } }
 		area 701 345 500 125
 		name "memorizedListPriest1"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10373,7 +10411,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+8].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+8)" } }
 		area 701 470 500 125
 		name "memorizedListPriest2"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10385,7 +10423,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+12].castable == 0" } }
+		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+12)" } }
 		area 701 595 500 125
 		name "memorizedListPriest3"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -11764,7 +11802,7 @@ end
 menu
 {
 	name 'STORE_BUYSELL'
-	align center top
+	align center center
 	onOpen "storeScreen:UpdateBuySellPanel()"
 	ignoreEsc
 	label
@@ -12223,7 +12261,7 @@ menu
 menu
 {
 	name 'STORE_IDENTIFY'
-	align center top
+	align center center
 	onOpen
 	"
 		storeScreen:UpdateIdentifyPanel()
@@ -12351,7 +12389,7 @@ end
 menu
 {
 	name 'STORE_DONATE'
-	align center top
+	align center center
 	ignoreEsc
 	onOpen 
 	"
@@ -12688,7 +12726,7 @@ menu
 menu
 {
 	name 'STORE_HEALING'
-	align center top
+	align center center
 	onOpen "storeScreen:UpdateBuySpellPanel()"
 	ignoreEsc
 	label
@@ -12953,6 +12991,7 @@ menu
 	align center center
 	onOpen
 	"
+		Infinity_SetBackground('BACKGROUND')
 		local menuName = storeScreen:GetMenuName(storeCurMenuId)
 		Infinity_PushMenu(menuName)
 		pushSidebars()
@@ -13726,7 +13765,7 @@ menu
 	}
 	button
 	{
-		area 319 110 87 87
+		area 232 110 87 87
 		bam STONSLOT
 		tooltip lua	"getContainerItemProperty(4,'name')"
 		tint lua	"getContainerItemProperty(4,'tint')"
@@ -13739,7 +13778,7 @@ menu
 	}
 	button
 	{
-		area 232 110 87 87
+		area 319 110 87 87
 		bam STONSLOT
 		tooltip lua	"getContainerItemProperty(5,'name')"
 		tint lua	"getContainerItemProperty(5,'tint')"
@@ -13936,7 +13975,12 @@ menu
 	ignoreEsc
 	onOpen
 	"
-		--Infinity_SetOffset('WORLD_QUICKLOOT',0, -toolbarTop)
+		local w, h = Infinity_GetScreenSize()
+		if (rgIsUltraWide() == false) then
+			Infinity_SetOffset('WORLD_QUICKLOOT',185, 0)
+		else
+			Infinity_SetOffset('WORLD_QUICKLOOT',0, 0)
+		end
 	"
 	
 	
@@ -15002,7 +15046,19 @@ function getLastMessageBoxWidth()
 			test = 25
 		end
 		
-		Infinity_SetArea('worldLastMessageBox',nil,nil,test*10,nil)
+		if string.find(textOutput, rgGetGameEngineString(17574,17574,17574,17574)) then --party gained experience exception
+			test = 70
+		end
+		
+		--test = 60
+		
+		local delta = Infinity_GetContentHeight(styles.normal.font, 300, textOutput, styles.normal.point, 1, styles.normal.useFontZoom)
+		local screenWidth, screenHeight = Infinity_GetScreenSize()
+		if delta > 19 then
+			Infinity_SetArea('worldLastMessageBox',nil,screenHeight-178,test*10,80)
+		else
+			Infinity_SetArea('worldLastMessageBox',nil,screenHeight-138,test*10,40)
+		end
 		
 		return textOutput
 end
@@ -15018,6 +15074,25 @@ function getMessageBoxTextWithoutPauseInfo()
 		
 		return textOutput
 end
+function getMessageBoxArea()
+	local x,y,w,h = Infinity_GetArea('messagesRect')
+	local screenWidth, screenHeight = Infinity_GetScreenSize()
+	local rgofset = 99
+	if rgIsUltraWide() == false then
+		rgofset = 10
+	end
+	
+	if (x == screenWidth+5 or x == 2000) then
+		Infinity_SetArea('messagesRect',5,rgofset-7,351,583+(99-rgofset))
+		Infinity_SetArea('worldMessageBox',16,rgofset,334,569+(99-rgofset))
+		Infinity_SetArea('worldLastMessageBox',screenWidth+5,nil,nil,nil)
+	else
+		Infinity_SetArea('messagesRect',screenWidth+5,rgofset-7,351,583+(99-rgofset))
+		Infinity_SetArea('worldMessageBox',screenWidth+5,rgofset,334,569+(99-rgofset))
+		Infinity_SetArea('worldLastMessageBox',5,screenHeight-138,nil,nil)
+	end
+end
+
  
 `
 menu
@@ -15031,6 +15106,9 @@ menu
 		--local x,y,w,h = Infinity_GetArea('messagesRect')
 		--toolbarTop = toolbarTop + h
 		--setMessagesY(worldMessageBoxTop - y)	
+		local w, h = Infinity_GetScreenSize()
+		Infinity_SetArea('rgOpenMessagesWide',nil,h - 91,nil,nil)
+		Infinity_SetArea('rgGroundItemsWide',nil,h-91,nil,nil)
 	"
 	onClose
 	"
@@ -15111,22 +15189,13 @@ menu
 		name "rgOpenMessages"
 	 	area 3 3 87 87
 		bam rgpguils
+		enabled "rgIsUltraWide()"
 		sequence 15
 		action
 		"
 			--Infinity_SetArea('messagesRect',5,nil,nil,nil)
 			--Infinity_SetArea('worldMessageBox',16,nil,nil,nil)
-			local x,y,w,h = Infinity_GetArea('messagesRect')
-			local screenWidth, screenHeight = Infinity_GetScreenSize()
-			if (x == screenWidth+5 or x == 2000) then
-				Infinity_SetArea('messagesRect',5,nil,nil,nil)
-				Infinity_SetArea('worldMessageBox',16,nil,nil,nil)
-				Infinity_SetArea('worldLastMessageBox',screenWidth+5,nil,nil,nil)
-			else
-				Infinity_SetArea('messagesRect',screenWidth+5,nil,nil,nil)
-				Infinity_SetArea('worldMessageBox',screenWidth+5,nil,nil,nil)
-				Infinity_SetArea('worldLastMessageBox',5,screenHeight-138,nil,nil)
-			end
+			getMessageBoxArea()
 		"
 	}
 	
@@ -15134,6 +15203,46 @@ menu
 	{
 	 	area 90 3 87 87
 		bam rgpguils
+		enabled "rgIsUltraWide()"
+		sequence 14
+		toggle groundItemsButtonToggle
+		action
+		"
+			if(groundItemsButtonToggle == 1) then
+				worldScreen:StartGroundItems()
+			else
+				worldScreen:StopGroundItems()
+			end
+		"
+		actionAlt
+		"
+			if(groundItemsButtonToggle == 1) then
+				worldScreen:StartGroundItems()
+			else
+				worldScreen:StopGroundItems()
+			end
+		"
+	}
+	
+	button
+	{
+		name "rgOpenMessagesWide"
+	 	area 3 673 87 87
+		bam rgpguils
+		enabled "rgIsUltraWide() == false"
+		sequence 15
+		action
+		"
+			getMessageBoxArea()
+		"
+	}
+	
+	button
+	{
+		name "rgGroundItemsWide"
+	 	area 90 673 87 87
+		bam rgpguils
+		enabled "rgIsUltraWide() == false"
 		sequence 14
 		toggle groundItemsButtonToggle
 		action
@@ -15897,7 +16006,7 @@ menu
 		align center center
 		ScaleToClip
 		pad 30 5 30 5
-		enabled "not createCharScreen:IsMainBackButtonClickable()"
+		enabled "createCharScreen:GetCurrentStep() == 0"
 		action "createCharScreen:OnMainCancelButtonClick()"
 	}
 	button
@@ -15929,7 +16038,7 @@ menu
 }
 
 `
-createCharGenderHelp = 24313
+createCharGenderHelp = 24313 --17236
 `
 menu
 {
@@ -15954,7 +16063,7 @@ menu
 	label
 	{
 		area 208 444 940 172
-		text lua "Infinity_FetchString(createCharGenderHelp)" 
+		text lua "rgGetGameEngineString(24313,24313,24313,17236)" 
 		text style "normal"
 	}
 	button
@@ -16177,27 +16286,29 @@ menu
 		ScaleToClip
         action "IncPortraitArray(); rgGlow = 0"
     }
-	label { area 208 86 173 272 bitmap lua "GetPortrait(1)" }
-    label { area 402 86 173 272 bitmap lua "GetPortrait(2)" }
-    label { area 596 86 173 272 bitmap lua "GetPortrait(3)" }
-    label { area 790 86 173 272 bitmap lua "GetPortrait(4)" }
-    label { area 984 86 173 272 bitmap lua "GetPortrait(5)" }
-    label { area 208 385 173 272 bitmap lua "GetPortrait(6)" }
-    label { area 402 385 173 272 bitmap lua "GetPortrait(7)" }
-    label { area 596 385 173 272 bitmap lua "GetPortrait(8)" }
-    label { area 790 385 173 272 bitmap lua "GetPortrait(9)" }
-    label { area 984 385 173 272 bitmap lua "GetPortrait(10)" }
 	
-	button { area 201 76 186 292  bam rgpchpor ScaleToClip toggle togglePort1 action  "togglePortrait1();  OnPortraitArrayClick(1); rgGlow = 1"  sequence lua "RgSelectedSPortSequence(1)" }
-    button { area 395 76 186 292  bam rgpchpor ScaleToClip toggle togglePort2 action  "togglePortrait2();  OnPortraitArrayClick(2); rgGlow = 2"  sequence lua "RgSelectedSPortSequence(2)" }
-    button { area 589 76 186 292  bam rgpchpor ScaleToClip toggle togglePort3 action  "togglePortrait3();  OnPortraitArrayClick(3); rgGlow = 3"  sequence lua "RgSelectedSPortSequence(3)" }
-    button { area 783 76 186 292  bam rgpchpor ScaleToClip toggle togglePort4 action  "togglePortrait4();  OnPortraitArrayClick(4); rgGlow = 4"  sequence lua "RgSelectedSPortSequence(4)" }
-    button { area 977 76 186 292  bam rgpchpor ScaleToClip toggle togglePort5 action  "togglePortrait5();  OnPortraitArrayClick(5); rgGlow = 5"  sequence lua "RgSelectedSPortSequence(5)" }
-    button { area 201 375 186 292 bam rgpchpor ScaleToClip toggle togglePort6 action  "togglePortrait6();  OnPortraitArrayClick(6); rgGlow = 6"  sequence lua "RgSelectedSPortSequence(6)" }
-    button { area 395 375 186 292 bam rgpchpor ScaleToClip toggle togglePort7 action  "togglePortrait7();  OnPortraitArrayClick(7); rgGlow = 7"  sequence lua "RgSelectedSPortSequence(7)" }
-    button { area 589 375 186 292 bam rgpchpor ScaleToClip toggle togglePort8 action  "togglePortrait8();  OnPortraitArrayClick(8); rgGlow = 8"  sequence lua "RgSelectedSPortSequence(8)" }
-    button { area 783 375 186 292 bam rgpchpor ScaleToClip toggle togglePort9 action  "togglePortrait9();  OnPortraitArrayClick(9); rgGlow = 9"  sequence lua "RgSelectedSPortSequence(9)" }
-    button { area 977 375 186 292 bam rgpchpor ScaleToClip toggle togglePort10 action "togglePortrait10(); OnPortraitArrayClick(10) rgGlow = 10"  sequence lua "RgSelectedSPortSequence(10)" }
+	label { area 201 76 186 292  bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(1)"  }
+    label { area 395 76 186 292  bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(2)"  }
+    label { area 589 76 186 292  bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(3)"  }
+    label { area 783 76 186 292  bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(4)"  }
+    label { area 977 76 186 292  bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(5)"  }
+    label { area 201 375 186 292 bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(6)"  }
+    label { area 395 375 186 292 bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(7)"  }
+    label { area 589 375 186 292 bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(8)"  }
+    label { area 783 375 186 292 bam rgpchpor ScaleToClip sequence lua "RgSelectedSPortSequence(9)"  }
+    label { area 977 375 186 292 bam rgpchpor ScaleToClip  sequence lua "RgSelectedSPortSequence(10)" }
+	
+	button { area 208 86 173 272  bitmap lua "GetPortrait(1)"   toggle togglePort1 action  "togglePortrait1();  OnPortraitArrayClick(1); rgGlow = 1"  }
+    button { area 402 86 173 272  bitmap lua "GetPortrait(2)"   toggle togglePort2 action  "togglePortrait2();  OnPortraitArrayClick(2); rgGlow = 2"  }
+    button { area 596 86 173 272  bitmap lua "GetPortrait(3)"   toggle togglePort3 action  "togglePortrait3();  OnPortraitArrayClick(3); rgGlow = 3"  }
+    button { area 790 86 173 272  bitmap lua "GetPortrait(4)"   toggle togglePort4 action  "togglePortrait4();  OnPortraitArrayClick(4); rgGlow = 4"  }
+    button { area 984 86 173 272  bitmap lua "GetPortrait(5)"   toggle togglePort5 action  "togglePortrait5();  OnPortraitArrayClick(5); rgGlow = 5"  }
+    button { area 208 385 173 272 bitmap lua "GetPortrait(6)"   toggle togglePort6 action  "togglePortrait6();  OnPortraitArrayClick(6); rgGlow = 6"  }
+    button { area 402 385 173 272 bitmap lua "GetPortrait(7)"   toggle togglePort7 action  "togglePortrait7();  OnPortraitArrayClick(7); rgGlow = 7"  }
+    button { area 596 385 173 272 bitmap lua "GetPortrait(8)"   toggle togglePort8 action  "togglePortrait8();  OnPortraitArrayClick(8); rgGlow = 8"  }
+    button { area 790 385 173 272 bitmap lua "GetPortrait(9)"   toggle togglePort9 action  "togglePortrait9();  OnPortraitArrayClick(9); rgGlow = 9"  }
+    button { area 984 385 173 272 bitmap lua "GetPortrait(10)"  toggle togglePort10 action "togglePortrait10(); OnPortraitArrayClick(10) rgGlow = 10"  }
+	
 	
 	--label
     --{
@@ -16941,6 +17052,25 @@ function proficiencyOrGeneralHelp()
 	end
 	end
 end
+function proficiencyOrGeneralHelp(fallback)
+	local prof = chargen.proficiency[currentChargenProficiency]
+	local skill = chargen.thief_skill[currentChargenThiefSkill]
+	if prof and prof.desc ~= -1 then
+		return Infinity_FetchString(prof.desc)
+	elseif skill and skill.desc ~= -1 then
+		return Infinity_FetchString(skill.description)
+	else
+		if(chargen.levelingUp) then
+			if(levelUpInfoToggle == 1) then
+				return chargen.charInfo
+			else
+				return chargen.levelInfo
+			end
+		else
+		return Infinity_FetchString(fallback)
+	end
+	end
+end
 
 function getProficienciesTitle()
 	if(chargen.levelingUp) then
@@ -17008,103 +17138,145 @@ menu
 	{
 		column
 		{
-			width 62
+			width 80
+			label
+			{	
+				enabled "chargen.proficiency[currentChargenProficiency] == chargen.proficiency[rowNumber]"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
 			label
 			{
-				area 0 0 280 55
+				area 0 0 280 -1
 				text lua "Infinity_FetchString(chargen.proficiency[rowNumber].name)"
 				text style "normal"
 				align right center
 				
 			}
-		}
-		column
-		{
-			width 4
 			label
 			{
 				bam GUIPFC
-				area 0 19 16 16
+				area 300 24 16 16
 				align center center
 				enabled "chargen.proficiency[rowNumber].value > 4"
 			}
-		}
-		column
-		{
-			width 4
 			label
 			{
 				bam GUIPFC
-				area 0 19 16 16
+				area 320 24 16 16
 				align center center
 				enabled "chargen.proficiency[rowNumber].value > 3"
 			}
-		}
-		column
-		{
-			width 4
 			label
 			{
 				bam GUIPFC
-				area 0 19 16 16
+				area 340 24 16 16
 				align center center
 				enabled "chargen.proficiency[rowNumber].value > 2"
 			}
-		}
-		column
-		{
-			width 4
 			label
 			{
 				bam GUIPFC
-				area 0 19 16 16
+				area 360 24 16 16
 				align center center
 				enabled "chargen.proficiency[rowNumber].value > 1"
 			}
-		}
-		column
-		{
-			width 4
 			label
 			{
 				bam GUIPFC
-				area 0 19 16 16
+				area 380 24 16 16
 				align center center
 				enabled "chargen.proficiency[rowNumber].value > 0"
 			}
 		}
+		--column
+		--{
+		--	width 4
+		--	label
+		--	{
+		--		bam GUIPFC
+		--		area 0 19 16 16
+		--		align center center
+		--		enabled "chargen.proficiency[rowNumber].value > 4"
+		--	}
+		--}
+		--column
+		--{
+		--	width 4
+		--	label
+		--	{
+		--		bam GUIPFC
+		--		area 0 19 16 16
+		--		align center center
+		--		enabled "chargen.proficiency[rowNumber].value > 3"
+		--	}
+		--}
+		--column
+		--{
+		--	width 4
+		--	label
+		--	{
+		--		bam GUIPFC
+		--		area 0 19 16 16
+		--		align center center
+		--		enabled "chargen.proficiency[rowNumber].value > 2"
+		--	}
+		--}
+		--column
+		--{
+		--	width 4
+		--	label
+		--	{
+		--		bam GUIPFC
+		--		area 0 19 16 16
+		--		align center center
+		--		enabled "chargen.proficiency[rowNumber].value > 1"
+		--	}
+		--}
+		--column
+		--{
+		--	width 4
+		--	label
+		--	{
+		--		bam GUIPFC
+		--		area 0 19 16 16
+		--		align center center
+		--		enabled "chargen.proficiency[rowNumber].value > 0"
+		--	}
+		--}
 
 		column
 		{
-			width 9
+			width 10
 			label
 			{
-				area 0 2 55 55
+				area 0 10 45 45
 				bam rgpbtpl
-				frame lua "getPlusFrame(7)"
+				frame lua "getPlusFrame(2)"
 				sequence 0
 				ScaleToClip
 			}
 		}
 		column
 		{
-			width 9
+			width 10
 			label
 			{
-				area 0 2 55 55
+				area 0 10 45 45
 				bam rgpbtpl
 				sequence 1
 				ScaleToClip
-				frame lua "getMinusFrame(8)"
+				frame lua "getMinusFrame(3)"
 			}
 		}
 
 		action "
 			currentChargenThiefSkill = nil
 			if ticksStarting < 10 then
-				if cellNumber == 7 and plusButtonClickable(currentChargenProficiency) then
+				if cellNumber == 2 and plusButtonClickable(currentChargenProficiency) then
 					createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, true)
-				elseif cellNumber == 8 and minusButtonClickable(currentChargenProficiency) then
+				elseif cellNumber == 3 and minusButtonClickable(currentChargenProficiency) then
 					createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, false)
 				end
 			end
@@ -17118,9 +17290,9 @@ menu
 			if ticksStarting > 10 then
 				ticksPassed = ticksPassed + 1
 				if ticksPassed > 7 then
-					if cellNumber == 7 and plusButtonClickable(currentChargenProficiency) then
+					if cellNumber == 2 and plusButtonClickable(currentChargenProficiency) then
 						createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, true)
-					elseif cellNumber == 8 and minusButtonClickable(currentChargenProficiency) then
+					elseif cellNumber == 3 and minusButtonClickable(currentChargenProficiency) then
 						createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, false)
 					end
 					ticksPassed = 0
@@ -17130,6 +17302,7 @@ menu
 
 		rowheight 65
 		area 24 136 515 542
+		hideHighlight
 		table "chargen.proficiency"
 		var currentChargenProficiency
 		scrollbar	'rgpscrl'
@@ -17139,7 +17312,14 @@ menu
 	{
 		column
 		{
-			width 60
+			width 70
+			label
+			{	
+				enabled "chargen.thief_skill[currentChargenThiefSkill] == chargen.thief_skill[rowNumber]"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
 			label
 			{
 				area 0 0 180 54
@@ -17148,55 +17328,57 @@ menu
 				text align right center
 				
 			}
-		}
-		column
-		{
-			width 10
 			label
 			{
-				area 0 0 40 54
+				area 180 0 40 54
 				text lua "chargen.thief_skill[rowNumber].value"
 				text style "normal"
 				text align left center
 
 			}
 		}
+		
 		column
 		{
-			width 18
+			width 15
 			label
 			{
-				area 24 2 55 55
+				area 0 10 45 45
 				bam rgpbtpl
 				ScaleToClip
 				enabled "createCharScreen:IsThiefSkillPlusMinusButtonClickable()"
-				frame lua "currentCellCheck(3)"
+				frame lua "currentCellCheck(2)"
 				sequence 0
 			}
 		}
 		column
 		{
-			width 12
+			width 15
 			label
 			{
-				area 0 2 55 55
+				area 0 10 45 45
 				bam rgpbtpl
 				ScaleToClip
 				enabled "createCharScreen:IsThiefSkillPlusMinusButtonClickable()"
-				frame lua "currentCellCheck(4)"
+				frame lua "currentCellCheck(3)"
 				sequence 1
 
 			}
 		}
-
+		rowheight 65
+		hideHighlight
+		area 556 136 414 542
+		table "chargen.thief_skill"
+		var currentChargenThiefSkill
+		scrollbar	'rgpscrl'
 		action 
 		"
 			currentChargenProficiency = nil
 			if ticksStarting < 10 then
 				if createCharScreen:IsThiefSkillPlusMinusButtonClickable() then
-					if cellNumber == 3 then
+					if cellNumber == 2 then
 						createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, true)
-					elseif cellNumber == 4 then
+					elseif cellNumber == 3 then
 						createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, false)
 					end
 				end
@@ -17223,12 +17405,6 @@ menu
 				end
 			end
 		"
-
-		rowheight 60
-		area 556 136 414 542
-		table "chargen.thief_skill"
-		var currentChargenThiefSkill
-		scrollbar	'rgpscrl'
 	}
 
 	text
@@ -18681,8 +18857,14 @@ menu
 	{
 		column
 		{
-			width 15
-
+			width 80
+			label
+			{	
+				enabled "chargen.HLAs[currentHLASelection] == chargen.HLAs[rowNumber]"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
 			label
 			{
 				bam GUIBTBUT
@@ -18692,22 +18874,30 @@ menu
 				glow lua "chargen.HLAs[rowNumber].count > 0"
 				count lua "chargen.HLAs[rowNumber].count"
 			}
-		}
-		column
-		{
-			width 61
 			label
 			{
-				area 4 0 -1 -1
+				area 60 0 -1 -1
 				text lua "Infinity_FetchString(chargen.HLAs[rowNumber].name)"
 				text style "normal"
 				align left center
 				
 			}
 		}
+		--column
+		--{
+		--	width 61
+		--	label
+		--	{
+		--		area 4 0 -1 -1
+		--		text lua "Infinity_FetchString(chargen.HLAs[rowNumber].name)"
+		--		text style "normal"
+		--		align left center
+		--		
+		--	}
+		--}
 		column
 		{
-			width 12
+			width 10
 			label
 			{
 				area 0 4 45 45
@@ -18719,7 +18909,7 @@ menu
 		}
 		column
 		{
-			width 12
+			width 10
 			label
 			{
 				area 0 4 45 45
@@ -18734,15 +18924,16 @@ menu
 
 		scrollbar	'rgpscrl'
 		rowheight 52
+		hideHighlight
 		area 20 168 606 492
 		table "chargen.HLAs"
 		var currentHLASelection
 		action 
 		"
 			print(chargen.HLAs[currentHLASelection].count)
-			if cellNumber == 3 and chargenHLAPlusMinusFrame(3, currentHLASelection) ~= 3 then
+			if cellNumber == 2 and chargenHLAPlusMinusFrame(3, currentHLASelection) ~= 3 then
 				createCharScreen:OnHLAButtonClick(currentHLASelection, 1)
-			elseif cellNumber == 4 and chargenHLAPlusMinusFrame(4, currentHLASelection) ~= 3 then
+			elseif cellNumber == 3 and chargenHLAPlusMinusFrame(4, currentHLASelection) ~= 3 then
 				createCharScreen:OnHLAButtonClick(currentHLASelection, -1)
 			end
 			cellNumber = nil
@@ -25446,4 +25637,844 @@ menu
 			currentButtonHelp = 25 + buttonArray:GetButtonType(11)
 		"
 	}
-}
+}menu
+{
+	name 'CHARGEN_SKILLS'
+	modal
+	align center center
+	ignoreesc
+	onopen "currentChargenProficiency = nil; currentChargenThiefSkill = nil; ticksPassed = 0; ticksStarting = 0"
+	modal
+	label
+	{
+		area 0 0 1365 768
+		bam "RGBACKG"
+		ScaleToClip
+	}
+	label
+	{
+		area 18 12 700 56
+		text 11983
+		text style "rg_trajan"
+		text color '$'
+	}
+	label
+	{
+		area 304 76 50 44
+		text lua "chargen.extraSkillPoints"
+		text style "rg_trajan"
+		text align center center
+	}
+	list
+	{
+		column
+		{
+			width 70
+			label
+			{	
+				enabled "chargen.thief_skill[currentChargenThiefSkill] == chargen.thief_skill[rowNumber]"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
+			label
+			{
+				area 0 0 180 54
+				text lua "Infinity_FetchString(chargen.thief_skill[rowNumber].name)"
+				text style "normal"
+				text align right center
+				
+			}
+			label
+			{
+				area 180 0 40 54
+				text lua "chargen.thief_skill[rowNumber].value"
+				text style "normal"
+				text align center center
+
+			}
+		}
+		
+		column
+		{
+			width 15
+			label
+			{
+				area 0 10 45 45
+				bam rgpbtpl
+				ScaleToClip
+				enabled "createCharScreen:IsThiefSkillPlusMinusButtonClickable()"
+				frame lua "currentCellCheck(2)"
+				sequence 0
+			}
+		}
+		column
+		{
+			width 15
+			label
+			{
+				area 0 10 45 45
+				bam rgpbtpl
+				ScaleToClip
+				enabled "createCharScreen:IsThiefSkillPlusMinusButtonClickable()"
+				frame lua "currentCellCheck(3)"
+				sequence 1
+
+			}
+		}
+		rowheight 65
+		hideHighlight
+		area 24 136 515 542
+		table "chargen.thief_skill"
+		var currentChargenThiefSkill
+		scrollbar	'rgpscrl'
+		action 
+		"
+			currentChargenProficiency = nil
+			if ticksStarting < 10 then
+				if createCharScreen:IsThiefSkillPlusMinusButtonClickable() then
+					if cellNumber == 2 then
+						createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, true)
+					elseif cellNumber == 3 then
+						createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, false)
+					end
+				end
+			end
+			cellNumber = nil
+			ticksPassed = 0
+			ticksStarting = 0
+		"
+		actionUpdate 
+		"
+			currentChargenProficiency = nil
+			if createCharScreen:IsThiefSkillPlusMinusButtonClickable() then
+				ticksStarting = ticksStarting + 1
+				if ticksStarting > 10 then
+					ticksPassed = ticksPassed + 1
+					if ticksPassed > 2 then
+						if cellNumber == 3 then
+							createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, true)
+						elseif cellNumber == 4 then
+							createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, false)
+						end
+						ticksPassed = 0
+					end
+				end
+			end
+		"
+	}
+	text
+	{
+		area 974 136 370 542
+		text lua "proficiencyOrGeneralHelp(17248)"
+		text style "normal"
+		scrollbar	'rgpscrl'
+	}
+	button
+	{
+		on escape
+		area 24 686 426 76
+		bam			RGPBUT1
+		text "BACK_BUTTON"
+		text style	"rg_trajan"
+		align center center
+		ScaleToClip
+		clickable lua "isChargenProficienciesBackButtonClickable()"
+		action "createCharScreen:OnCancelButtonClick();"
+	}
+	button
+	{
+		on return
+		area 472 686 426 76
+		bam			RGPBUT1
+		text "DONE_BUTTON"
+		text style	"rg_trajan"
+		align center center
+		ScaleToClip
+		clickable lua "createCharScreen:IsDoneButtonClickable()"
+		action "createCharScreen:OnDoneButtonClick();"
+	}
+}
+menu
+{
+	name 'LEVELUP_PROFICIENCIES'
+	modal
+	align center center
+	ignoreesc
+	onopen "currentChargenProficiency = nil; currentChargenThiefSkill = nil; ticksPassed = 0; ticksStarting = 0"
+	label
+	{
+		area 0 0 1365 768
+		bam "RGBACKG"
+		ScaleToClip
+	}
+	label
+	{
+		area 18 12 700 56
+		text lua "getProficienciesTitle()"
+		text style "rg_trajan"
+		text color '$'
+	}
+	label
+	{
+		area 18 80 426 40
+		text "PROF_SLOTS_LABEL"
+		text style "rg_trajan"
+		text align left center
+	}
+	label
+	{
+		area 444 76 50 44
+		text lua "chargen.extraProficiencySlots"
+		text style "rg_trajan"
+		text align center center
+	}
+	label
+	{
+		area 556 80 326 40
+		text "SKILLS_LABEL"
+		text style "rg_trajan"
+		text align left center
+	}
+	label
+	{
+		area 884 76 50 44
+		text lua "chargen.extraSkillPoints"
+		text style "rg_trajan"
+		text align center center
+	}
+	
+	list
+	{
+		column
+		{
+			width 80
+			label
+			{	
+				enabled "chargen.proficiency[currentChargenProficiency] == chargen.proficiency[rowNumber]"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
+			label
+			{
+				area 0 0 280 -1
+				text lua "Infinity_FetchString(chargen.proficiency[rowNumber].name)"
+				text style "normal"
+				align right center
+				
+			}
+			label
+			{
+				bam GUIPFC
+				area 300 24 16 16
+				align center center
+				enabled "chargen.proficiency[rowNumber].value > 4"
+			}
+			label
+			{
+				bam GUIPFC
+				area 320 24 16 16
+				align center center
+				enabled "chargen.proficiency[rowNumber].value > 3"
+			}
+			label
+			{
+				bam GUIPFC
+				area 340 24 16 16
+				align center center
+				enabled "chargen.proficiency[rowNumber].value > 2"
+			}
+			label
+			{
+				bam GUIPFC
+				area 360 24 16 16
+				align center center
+				enabled "chargen.proficiency[rowNumber].value > 1"
+			}
+			label
+			{
+				bam GUIPFC
+				area 380 24 16 16
+				align center center
+				enabled "chargen.proficiency[rowNumber].value > 0"
+			}
+		}
+
+		column
+		{
+			width 10
+			label
+			{
+				area 0 10 45 45
+				bam rgpbtpl
+				frame lua "getPlusFrame(2)"
+				sequence 0
+				ScaleToClip
+			}
+		}
+		column
+		{
+			width 10
+			label
+			{
+				area 0 10 45 45
+				bam rgpbtpl
+				sequence 1
+				ScaleToClip
+				frame lua "getMinusFrame(3)"
+			}
+		}
+
+		action "
+			currentChargenThiefSkill = nil
+			if ticksStarting < 10 then
+				if cellNumber == 2 and plusButtonClickable(currentChargenProficiency) then
+					createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, true)
+				elseif cellNumber == 3 and minusButtonClickable(currentChargenProficiency) then
+					createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, false)
+				end
+			end
+			cellNumber = nil
+			ticksPassed = 0
+			ticksStarting = 0
+		"
+		actionUpdate "
+			currentChargenThiefSkill = nil
+			ticksStarting = ticksStarting + 1
+			if ticksStarting > 10 then
+				ticksPassed = ticksPassed + 1
+				if ticksPassed > 7 then
+					if cellNumber == 2 and plusButtonClickable(currentChargenProficiency) then
+						createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, true)
+					elseif cellNumber == 3 and minusButtonClickable(currentChargenProficiency) then
+						createCharScreen:OnProficiencyPlusMinusButtonClick(chargen.proficiency[currentChargenProficiency].id, false)
+					end
+					ticksPassed = 0
+				end
+			end
+		"
+
+		rowheight 65
+		area 24 136 515 542
+		hideHighlight
+		table "chargen.proficiency"
+		var currentChargenProficiency
+		scrollbar	'rgpscrl'
+
+	}
+	list
+	{
+		column
+		{
+			width 70
+			label
+			{	
+				enabled "chargen.thief_skill[currentChargenThiefSkill] == chargen.thief_skill[rowNumber]"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
+			label
+			{
+				area 0 0 180 54
+				text lua "Infinity_FetchString(chargen.thief_skill[rowNumber].name)"
+				text style "normal"
+				text align right center
+				
+			}
+			label
+			{
+				area 180 0 40 54
+				text lua "chargen.thief_skill[rowNumber].value"
+				text style "normal"
+				text align left center
+
+			}
+		}
+		
+		column
+		{
+			width 15
+			label
+			{
+				area 0 10 45 45
+				bam rgpbtpl
+				ScaleToClip
+				enabled "createCharScreen:IsThiefSkillPlusMinusButtonClickable()"
+				frame lua "currentCellCheck(2)"
+				sequence 0
+			}
+		}
+		column
+		{
+			width 15
+			label
+			{
+				area 0 10 45 45
+				bam rgpbtpl
+				ScaleToClip
+				enabled "createCharScreen:IsThiefSkillPlusMinusButtonClickable()"
+				frame lua "currentCellCheck(3)"
+				sequence 1
+
+			}
+		}
+		rowheight 65
+		hideHighlight
+		area 556 136 414 542
+		table "chargen.thief_skill"
+		var currentChargenThiefSkill
+		scrollbar	'rgpscrl'
+		action 
+		"
+			currentChargenProficiency = nil
+			if ticksStarting < 10 then
+				if createCharScreen:IsThiefSkillPlusMinusButtonClickable() then
+					if cellNumber == 2 then
+						createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, true)
+					elseif cellNumber == 3 then
+						createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, false)
+					end
+				end
+			end
+			cellNumber = nil
+			ticksPassed = 0
+			ticksStarting = 0
+		"
+		actionUpdate 
+		"
+			currentChargenProficiency = nil
+			if createCharScreen:IsThiefSkillPlusMinusButtonClickable() then
+				ticksStarting = ticksStarting + 1
+				if ticksStarting > 10 then
+					ticksPassed = ticksPassed + 1
+					if ticksPassed > 2 then
+						if cellNumber == 3 then
+							createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, true)
+						elseif cellNumber == 4 then
+							createCharScreen:OnThiefSkillPlusMinusButtonClick(chargen.thief_skill[currentChargenThiefSkill].id, false)
+						end
+						ticksPassed = 0
+					end
+				end
+			end
+		"
+	}
+	text
+	{
+		area 974 136 370 542
+		text lua "proficiencyOrGeneralHelp()"
+		text style "normal"
+		scrollbar	'rgpscrl'
+	}
+	button
+	{
+		enabled "chargen.levelingUp"
+		area 974 44 370 76
+		bam			RGPBUT1
+		text "INFORMATION_BUTTON"
+		text style	"rg_trajan"
+		align center center
+		pad 40 0 40 0
+		ScaleToClip
+		toggle "levelUpInfoToggle"
+		action
+		"
+			currentChargenProficiency = nil
+			currentChargenThiefSkill = nil
+		"
+	}
+	button
+	{
+		enabled "chargen.levelingUp"
+		area 918 686 426 76
+		bam			RGPBUT1
+		text "HIGH_LEVEL_ABILITIES_BUTTON"
+		text style	"rg_trajan"
+		align center center
+		pad 40 0 40 0
+		ScaleToClip
+		toggle "levelUpInfoToggle"
+		clickable lua "createCharScreen:IsHighLevelAbilitiesButtonClickable()"
+		action
+		"
+			createCharScreen:OnHighLevelAbilitiesButtonClick()
+		"
+	}
+	button
+	{
+		on escape
+		area 24 686 426 76
+		bam			RGPBUT1
+		text "BACK_BUTTON"
+		text style	"rg_trajan"
+		align center center
+		ScaleToClip
+		clickable lua "isChargenProficienciesBackButtonClickable()"
+		action "createCharScreen:OnCancelButtonClick();"
+	}
+	button
+	{
+		on return
+		area 472 686 426 76
+		bam			RGPBUT1
+		text "DONE_BUTTON"
+		text style	"rg_trajan"
+		align center center
+		ScaleToClip
+		clickable lua "createCharScreen:IsDoneButtonClickable()"
+		action 
+		"
+			Infinity_PopMenu()
+			createCharScreen:OnDoneButtonClick()
+		"
+	}
+	
+
+}
+`	
+	createPartyOffset = 0
+	prerollCharacters = {}
+
+	function scrollPregens()
+		if scrollDirection > 0 then
+			scrollPregenUp()
+		elseif scrollDirection < 0 then
+			scrollPregenDown()
+		end
+	end
+
+	function scrollPregenUp()
+		if createPartyOffset > 0 then
+			createPartyOffset = createPartyOffset - 1
+		end
+	end
+
+	function scrollPregenDown()
+		if createPartyOffset < (#prerollCharacters - 3) then
+			createPartyOffset = createPartyOffset + 1
+		end
+	end
+
+	function getPregenCharacterName(slotNumber)
+		local ret = ""
+
+		if slotNumber + createPartyOffset < #prerollCharacters+1 then
+			ret = prerollCharacters[slotNumber+createPartyOffset]["name"]
+		end
+
+		return ret
+	end
+
+	function getPregenCharacterBiography(slotNumber)
+		local ret = ""
+
+		if slotNumber + createPartyOffset < #prerollCharacters+1 then
+			ret = prerollCharacters[slotNumber+createPartyOffset]["description"]
+		end
+
+		return ret
+	end
+
+	function getPregenCharacterPortrait(slotNumber)
+		local ret = "noportsm"
+
+		if slotNumber + createPartyOffset < #prerollCharacters+1 then
+			ret = prerollCharacters[slotNumber+createPartyOffset]["image"]
+		end
+
+		return ret
+	end
+
+	function getPregenCharacterFileName(slotNumber)
+		local ret = ""
+
+		if slotNumber + createPartyOffset < #prerollCharacters+1 then
+			ret = prerollCharacters[slotNumber+createPartyOffset]["file"]
+		end
+
+		return ret
+	end
+
+	function playAsPreroll(slotNumber)
+		local fileName = getPregenCharacterFileName(slotNumber)
+		if fileName ~= "" then
+
+		end
+	end
+	
+	function rgGetImportInfo(text)
+		local list = {}
+		for i in string.gmatch(text, "[^\r\n]+") do
+			table.insert(list, i);
+		end
+		
+		return list[1]
+	end
+`
+menu
+{
+	name 'CHARGEN_SELECTPREGEN'
+	align center center
+	onOpen
+	"
+		createPartyOffset = 0
+		createCharScreen:GetImportableCharacters()
+	"
+
+	label
+	{
+		area 0 0 1365 768
+		bam "RGBACKG"
+		ScaleToClip
+	}
+
+	button
+	{
+		area 0 0 1024 768
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+
+	label
+	{
+		area 18 12 700 56
+		text "CHARGEN_TITLE"
+		text style "rg_trajan"
+		text color '$'
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	
+	--button 
+	--{
+	--	bitmap "noportsm"
+	--	area 48 128 62 90
+	--	align center center
+	--	actionScroll
+	--	"
+	--		scrollPregens()
+	--	"
+	--}
+	--label
+	--{
+	--	area 134 106 534 30
+	--	text style "label"
+	--	align left top
+	--	text lua "Infinity_FetchString(10264)"
+	--	actionScroll
+	--	"
+	--		scrollPregens()
+	--	"
+	--}
+	--label
+	--{
+	--	area 152 148 502 82
+	--	text style "label"
+	--	align left top
+	--	text lua "Infinity_FetchString(34752)"
+	--}
+	button 
+	{
+		bam RGPBUT1
+		area 362 70 640 82
+		text style "rg_trajan"
+		pad 30 5 30 5
+		align center center
+		ScaleToClip
+		text "CREATE_BUTTON"
+		action 
+		"
+			Infinity_PopMenu()
+			Infinity_PushMenu('CHARGEN')
+		"
+	}
+
+	label
+	{
+		area 36 202 94 138
+		bam rgpporl
+		ScaleToClip
+	}
+	button 
+	{
+		bitmap lua 'getPregenCharacterPortrait(1)'
+		area 42 206 82 130
+		align center center
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	label
+	{
+		area 152 216 600 104
+		text style "normal"
+		align left top
+		text lua "getPregenCharacterName(1) .. '\n' .. rgGetImportInfo(getPregenCharacterBiography(1))"
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	button 
+	{
+		bam RGPBUT1
+		area 788 236 538 82
+		text style "rg_trajan"
+		pad 30 5 30 5
+		align center center
+		ScaleToClip
+		text "PLAY_IMPORT_BUTTON"
+		action 
+		"
+			Infinity_PopMenu()
+			createCharScreen:OnPrerollCharacterPick(0 + createPartyOffset)
+		"
+	}
+
+	label
+	{
+		area 36 346 94 138
+		bam rgpporl
+		ScaleToClip
+	}
+	button 
+	{
+		bitmap lua 'getPregenCharacterPortrait(2)'
+		area 42 350 82 130
+		align center center
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	label
+	{
+		area 152 360 600 104
+		text style "normal"
+		align left top
+		text lua "getPregenCharacterName(2) .. '\n' .. rgGetImportInfo(getPregenCharacterBiography(2))"
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	button 
+	{
+		bam RGPBUT1
+		area 784 380 542 82
+		text style "rg_trajan"
+		pad 30 5 30 5
+		align center center
+		ScaleToClip
+		text "PLAY_IMPORT_BUTTON"
+		action 
+		"
+			Infinity_PopMenu()
+			createCharScreen:OnPrerollCharacterPick(1 + createPartyOffset)
+		"
+	}
+
+	label
+	{
+		area 36 490 94 138
+		bam rgpporl
+		ScaleToClip
+	}
+	button 
+	{
+		bitmap lua 'getPregenCharacterPortrait(3)'
+		area 42 494 82 130
+		align center center
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	label
+	{
+		area 152 504 600 104
+		text style "normal"
+		align left top
+		text lua "getPregenCharacterName(3) .. '\n' .. rgGetImportInfo(getPregenCharacterBiography(3))"
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	button 
+	{
+		bam RGPBUT1
+		area 784 524 542 82
+		text style "rg_trajan"
+		pad 30 5 30 5
+		align center center
+		ScaleToClip
+		text "PLAY_IMPORT_BUTTON"
+		action 
+		"
+			Infinity_PopMenu()
+			createCharScreen:OnPrerollCharacterPick(2 + createPartyOffset)
+		"
+	}
+
+
+	button 
+	{
+		--bam 'GUISV10'
+		--sequence 0
+		--area 28 80 116 116
+		area		36 74 94 124
+		bam		RGPJBUT
+		sequence	3
+		scaleToClip
+		action 
+		"
+			scrollPregenUp()
+		"
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	button 
+	{
+		--bam 'GUISV10'
+		--sequence 1
+		--area 28 636 116 116
+		area		36 636 94 124
+		bam		RGPJBUT
+		sequence	4
+		scaleToClip
+		action 
+		"
+			scrollPregenDown()
+		"
+		actionScroll
+		"
+			scrollPregens()
+		"
+	}
+	button 
+	{
+		on escape
+		bam RGPBUT1
+		area 362 678 640 82
+		text style "rg_trajan"
+		pad 30 5 30 5
+		align center center
+		ScaleToClip
+		text "BACK_BUTTON"
+		action 
+		"
+			Infinity_PopMenu()
+			createCharScreen:OnMainCancelButtonClick()
+		"
+	}
+}
