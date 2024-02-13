@@ -374,68 +374,68 @@ function rgFirstLetterUpper(instr)
     return instr
 end
 function rgFetchMageClassString(class)
-    if rgGetClassName(class) == rgFirstLetterUpper(rgGetGameEngineString(1081,1081,1081,1081))  or 
-		rgGetClassName(class) == rgGetGameEngineString(12837,12837,12837,12837) or 
-		rgGetClassName(class) == rgGetGameEngineString(31977,31977,74302,37252) or 
-		rgGetClassName(class) == rgGetGameEngineString(32342,32342,103061,40880) then
+    if rgGetClassName(class):lower() == rgGetGameEngineString(1081,1081,1081,1081):lower()  or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(12837,12837,12837,12837):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(31977,31977,74302,37252):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(32342,32342,103061,40880):lower() then
 		return true
 	else
 		return false
 	end
 end
 function rgFetchFighterClassString(class)
-    if rgGetClassName(class) == rgFirstLetterUpper(rgGetGameEngineString(1076,1076,1076,1076)) then
+    if rgGetClassName(class):lower() == rgGetGameEngineString(1076,1076,1076,1076):lower() then
 		return true
 	else
 		return false
 	end
 end
 function rgFetchRangerClassString(class)
-    if rgGetClassName(class) == rgGetGameEngineString(1078,1078,1078,1078) or 
-		rgGetClassName(class) == rgGetGameEngineString(24264,24264,25154,25154) or 
-		rgGetClassName(class) == rgGetGameEngineString(24265,24265,25155,25155) or 
-		rgGetClassName(class) == rgGetGameEngineString(24266,24266,25156,25156) or 
-		rgGetClassName(class) == rgGetGameEngineString(1077,1077,1077,1077) or 
-		rgGetClassName(class) == rgGetGameEngineString(24267,24267,25157,25157) or 
-		rgGetClassName(class) == rgGetGameEngineString(24268,24268,25158,25158) or 
-		rgGetClassName(class) == rgGetGameEngineString(24269,24269,25159,25159) then
+    if rgGetClassName(class):lower() == rgGetGameEngineString(1078,1078,1078,1078):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24264,24264,25154,25154):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24265,24265,25155,25155):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24266,24266,25156,25156):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(1077,1077,1077,1077):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24267,24267,25157,25157):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24268,24268,25158,25158):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24269,24269,25159,25159):lower() then
 		return true
 	else
 		return false
 	end
 end
 function rgFetchPriestClassString(class)
-    if rgGetClassName(class) == rgGetGameEngineString(1079,1079,1079,1079) or 
-		rgGetClassName(class) == rgGetGameEngineString(24276,24276,25168,1) or 
-		rgGetClassName(class) == rgGetGameEngineString(24277,24277,25169,1) or 
-		rgGetClassName(class) == rgGetGameEngineString(24278,24278,25170,1) or 
-		rgGetClassName(class) == rgGetGameEngineString(9410,9410,9410,9410) or 
-		rgGetClassName(class) == rgGetGameEngineString(31980,31980,74306,37261) or 
-		rgGetClassName(class) == rgGetGameEngineString(31983,31983,74309,37264) then
+    if rgGetClassName(class):lower() == rgGetGameEngineString(1079,1079,1079,1079):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24276,24276,25168,1):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24277,24277,25169,1):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24278,24278,25170,1):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(9410,9410,9410,9410):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(31980,31980,74306,37261):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(31983,31983,74309,37264):lower() then
 		return true
 	else
 		return false
 	end
 end
 function rgFetchDruidClassString(class)
-    if rgGetClassName(class) == rgGetGameEngineString(1080,1080,1080,1080) or 
-		rgGetClassName(class) == rgGetGameEngineString(24279,24279,25171,25171) or 
-		rgGetClassName(class) == rgGetGameEngineString(24280,24280,25173,25173) or 
-		rgGetClassName(class) == rgGetGameEngineString(24281,24281,25174,25174)then
+    if rgGetClassName(class):lower() == rgGetGameEngineString(1080,1080,1080,1080):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24279,24279,25171,25171):lower()  or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24280,24280,25173,25173):lower()  or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24281,24281,25174,25174):lower() then
 		return true
 	else
 		return false
 	end
 end
 function rgFetchRogueClassString(class)
-    if rgGetClassName(class) == rgGetGameEngineString(1082,1082,1082,1082) or 
-		rgGetClassName(class) == rgGetGameEngineString(24270,24270,25160,25160) or 
-		rgGetClassName(class) == rgGetGameEngineString(24271,24271,25161,25161) or 
-		rgGetClassName(class) == rgGetGameEngineString(24272,24272,25162,25162) or 
-		rgGetClassName(class) == rgGetGameEngineString(1083,1083,1083,1083) or 
-		rgGetClassName(class) == rgGetGameEngineString(24273,24273,25164,25164) or 
-		rgGetClassName(class) == rgGetGameEngineString(24274,24274,25165,25165) or 
-		rgGetClassName(class) == rgGetGameEngineString(24275,24275,25166,25166) then
+    if rgGetClassName(class):lower() == rgGetGameEngineString(1082,1082,1082,1082):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24270,24270,25160,25160):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24271,24271,25161,25161):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24272,24272,25162,25162):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(1083,1083,1083,1083):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24273,24273,25164,25164):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24274,24274,25165,25165):lower() or 
+		rgGetClassName(class):lower() == rgGetGameEngineString(24275,24275,25166,25166):lower() then
 		return true
 	else
 		return false
@@ -2934,7 +2934,7 @@ function rgAddAutoPauseToggles()
 	{'CHARACTER_ATTACKED_LABEL',18035, 4 , 0, 0},
 	{'CHARACTER_TARGET_DESTROYED',18037, 13, 0, 0},
 	}
-	local game = rgGetGameEngine()
+	local game = rgGameEngine
 	if game == 0 or game == 1 then
 		table.insert(autoPauseToggles, {'SPELL_CAST_LABEL',24432, 31, 0, 0})
 		table.insert(autoPauseToggles, {'TRAP_FOUND_LABEL',24433, 31, 0, 0})
@@ -3180,7 +3180,7 @@ menu
 `
 graphicsToggles = { }
 function rgAddGraphicsToggles()
-	local game = rgGetGameEngine()
+	local game = rgGameEngine
 	table.insert(graphicsToggles, {'FULL_SCREEN_LABEL',18000, 9 , 0, 0, 0})
 	if game == 0 or game == 1 then
 		table.insert(graphicsToggles, {'HARDWARE_CURSOR_LABEL',32205, 13, 0, 0, 0})
@@ -7557,10 +7557,36 @@ function luaEditHistoryDown()
 	luaEdit = luaEditHistory[luaEditHistoryIndex]
 end
 
+function rgGetCheatLists()
+	local out = {}
+	
+	for i = 1,#keybindings[5] do
+		local a = keybindings[5][i][3]
+		local b = keybindings[5][i][4]
+		table.insert(out, {a,b})
+		
+	end
+	
+	for i = 1,#keybindings[6] do
+		local a = keybindings[6][i][3]
+		local b = keybindings[6][i][4]
+		table.insert(out, {a,b})
+	end
+	
+	rgCheatSpells = out
+end
+function rgGetCheatSpellCode(spell)
+	local out = ''
+	out = 'C:AddSpell("' .. spell .. '")'
+	return out
+end
+
 cheatGoldAmt = 1000000
 cheatXpAmt = 500000
 
 cheatAreaDisplayList = {}
+rgCheatSection = 1
+rgCheatSpells = {}
 
 `
 menu
@@ -7570,13 +7596,50 @@ menu
 
 	onOpen
 	"
-		if game:GetMissionPackInfo() then
-			cheatAreaDisplayList = cheatAreasTutorial
-		elseif game:GetMissionPackInfoTBP() then
-			cheatAreaDisplayList = cheatAreasArena
-		else
-			cheatAreaDisplayList = cheatAreas
+		if rgGameEngine == 0 then --bg1
+			if game:GetMissionPackInfo() then
+				cheatAreaDisplayList = cheatAreasTutorial
+			elseif game:GetMissionPackInfoTBP() then
+				cheatAreaDisplayList = cheatAreasArena
+			else
+				cheatAreaDisplayList = cheatAreas
+			end
+		elseif rgGameEngine == 1 then --sod
+			if game:GetMissionPackInfo() then
+				cheatAreaDisplayList = cheatAreasTutorial
+			elseif game:GetMissionPackInfoTBP() then
+				cheatAreaDisplayList = cheatAreasArena
+			elseif startEngine:GetCampaign() == 3 then
+				cheatAreaDisplayList = cheatAreasExpansion
+			else
+				cheatAreaDisplayList = cheatAreas
+			end
+		elseif rgGameEngine == 2 then --bg2
+			if game:GetMissionPackInfo() then
+				cheatAreaDisplayList = cheatAreasTutorial
+			elseif game:GetMissionPackInfoTBP() then
+				cheatAreaDisplayList = cheatAreasArena
+			elseif game:GetMissionPackInfo25() then
+				cheatAreaDisplayList = cheatAreasExpansion
+			else
+				cheatAreaDisplayList = cheatAreas
+			end
+		elseif rgGameEngine == 3 then --iwd
+			if game:GetMissionPackInfo25() then
+				cheatAreaDisplayList = cheatAreasHoW
+			else
+				cheatAreaDisplayList = cheatAreas
+			end
+		elseif rgGameEngine == 4 then --eet
+			if startCampaignData[currentCampaign].cheatAreasTable ~= nil then
+				cheatAreaDisplayList = startCampaignData[currentCampaign].cheatAreasTable
+			else
+				cheatAreaDisplayList = cheatAreas
+			end
 		end
+		
+		w, h = Infinity_GetScreenSize()
+		Infinity_SetArea('rgCheatButtonLearnSpell', w-75, 8, 71, 103 * Infinity_GetNumCharacters())
 	"
 
 	label
@@ -7588,28 +7651,31 @@ menu
 	{
 		column 
 		{ 
-			width 20 
+			width 100 
+			label
+			{	
+				area 0 0 -1 24
+				bam rgpslct
+				sequence lua "rgGetSelectedBackground(cheatTeleportArea, rowNumber)"
+				ScaleToClip
+			}
 			label
 			{
-				area 0 0 -1 -1
+				area 10 0 90 24
 				text lua "cheatAreaDisplayList[rowNumber][1]"
-				text style "list"
+				text style "normal"
 			}
-		}
-		column 
-		{ 
-			width 80 
 			label
 			{
-				area 0 0 -1 -1
+				area 100 0 -1 24
 				text lua "cheatAreaDisplayList[rowNumber][2]"
-				text style "list"
+				text style "normal"
 			}
 		}
-
+		hideHighlight
 		area 120 98 494 260
-		
-		rowheight	18
+		enabled "rgCheatSection == 1"
+		rowheight	24
 		table		"cheatAreaDisplayList"
 		var		cheatTeleportArea
 		scrollbar	'rgpscrl'
@@ -7617,6 +7683,7 @@ menu
 	button
 	{
 		area		620 314 288 49
+		enabled "rgCheatSection == 1"
 		bam			RGPBUT1
 		text		"TRAVEL_BUTTON"
 		text style	"rg_trajan"
@@ -7624,6 +7691,43 @@ menu
 		ScaleToClip
 		pad 30 5 30 5
 		action 		"C:MoveToArea(cheatAreaDisplayList[cheatTeleportArea][1])"
+	}
+	list
+	{
+		column 
+		{ 
+			width 100 
+			label
+			{	
+				area 0 0 -1 24
+				bam rgpslct
+				sequence lua "rgGetSelectedBackground(cheatSpell, rowNumber)"
+				ScaleToClip
+			}
+			label
+			{
+				area 10 0 90 24
+				text lua "rgCheatSpells[rowNumber][1]"
+				text style	"normal"
+				align left center
+			}
+			label
+			{
+				area 100 0 -1 24
+				text lua "Infinity_FetchString(rgCheatSpells[rowNumber][2])"
+				text style	"normal"
+				align left center
+			}
+		}
+		hideHighlight
+		enabled "rgCheatSection == 2"
+		area 120 98 494 260
+		rowheight	dynamic
+		table		"rgCheatSpells"
+		var			cheatSpell
+		scrollbar	'rgpscrl'
+		action "luaEdit = rgGetCheatSpellCode(rgCheatSpells[cheatSpell][1])"
+		
 	}
 	button
 	{
@@ -7687,6 +7791,50 @@ menu
 		pad 30 5 30 5
 		action		"C:ExploreArea()"
 	}
+	
+	button
+	{
+		enabled "rgCheatSection == 1"
+		area 110 370 87 87
+		bam rgpguils
+		sequence 4
+		ScaleToClip
+		action		"rgCheatSection = 2"
+	}
+	button
+	{
+		enabled "rgCheatSection == 2"
+		area 110 370 87 87
+		bam rgpguils
+		sequence 0
+		ScaleToClip
+		action		"rgCheatSection = 1"
+	}
+	button
+	{
+		area 200 370 87 87
+		bam STONSL10
+		text style	"rg_trajan"
+		text "+1 h"
+		text align center center
+		ScaleToClip
+		action		"C:Eval('AdvanceTime(300)')"
+	}
+	button 
+	{
+		name "rgCheatButtonLearnSpell"
+		enabled "rgCheatSection == 2"
+		area 0 0 70 70
+		fill 112 111 111 64
+		action
+		"
+			--luaEdit = rgGetCheatSpellCode(rgCheatSpells[cheatSpell][1])
+			updateLuaHistory()
+			saveLuaHistory()
+			Infinity_LuaConsoleInput(luaEditObjectId,luaEditDebugDump)
+			return -1
+		"
+	}
 
 }
 menu
@@ -7708,7 +7856,7 @@ menu
 			{
 				area 0 0 -1 -1
 				text lua "luaEditHistory[rowNumber]"
-				text style	"list"
+				text style	"normal"
 			}
 		}
 		area 20 16 270 266
@@ -8218,7 +8366,7 @@ function getCampaignButtonTitle()
 	--local titl
 	
 	
-	if rgGetGameEngine() == 0 then
+	if rgGameEngine == 0 then
 		if currCampaign == 1 then
 			return t("BALDURS_GATE_BUTTON")
 		elseif currCampaign == 0 then
@@ -8226,7 +8374,7 @@ function getCampaignButtonTitle()
 		else 
 			return ''
 		end
-	elseif rgGetGameEngine() == 2 then
+	elseif rgGameEngine == 2 then
 		if currCampaign == 2 then
 			return t("SHADOWS OF AMN")
 		elseif currCampaign == 1 then
@@ -8236,7 +8384,7 @@ function getCampaignButtonTitle()
 		else 
 			return ''
 		end
-	elseif rgGetGameEngine() == 3 then
+	elseif rgGameEngine == 3 then
 		if currCampaign == 1 then
 			return t("ICEWIND DALE")
 		elseif currCampaign == 0 then
@@ -8266,7 +8414,7 @@ function rgGetGameEngine()
 end
 
 function rgGetGameEngineString(bg1,sod,bg2,iwd)
-	local eng = rgGetGameEngine()
+	local eng = rgGameEngine
 	
 	if eng == 0 then 
 		return Infinity_FetchString(bg1)
@@ -8293,8 +8441,10 @@ menu
 	ignoreesc
 	onOpen "
 		e:CheckGUISong()
+		rgGameEngine = rgGetGameEngine()
 		rgEscModeJournal = 0
 		rgIsInEscMode = 0
+		rgGetCheatLists()
 		if currCampaign == nil then currCampaign = 0 end
 		--currCampaign = 0
 		--local state = startEngine:GetEngineState()
@@ -8334,7 +8484,7 @@ menu
 	{
 		area 78 42 544 146	
 		bam 'RGPTITLE'
-		sequence lua "rgGetGameEngine()"
+		sequence lua "rgGameEngine"
 		align center center
 		frame lua "currCampaign"
 	}
@@ -8343,7 +8493,7 @@ menu
 		area 72 188 548 548	
 		bam 'RGPLOGO'
 		ScaleToClip
-		sequence lua "rgGetGameEngine()"
+		sequence lua "rgGameEngine"
 		--align center center
 		frame lua "currCampaign"
 	}
@@ -8371,15 +8521,15 @@ menu
 		text "NEW_GAME_BUTTON"
 		action 
 		"
-			if rgGetGameEngine() == 0 or rgGetGameEngine() == 3 then
+			if rgGameEngine == 0 or rgGameEngine == 3 then
 				if currCampaign == 0 then
 					startEngine:OnSoAButtonClick(true)
 				else
 					startEngine:OnTBPButtonClick(true)
 				end
-			elseif rgGetGameEngine() == 1 then
+			elseif rgGameEngine == 1 then
 				startEngine:OnCampaignButtonClick('SOD',true)
-			elseif rgGetGameEngine() == 2 then
+			elseif rgGameEngine == 2 then
 				if currCampaign == 0 then
 					startEngine:OnSoAButtonClick(true)
 				elseif currCampaign == 1 then
@@ -8389,7 +8539,7 @@ menu
 				end
 			end
 			Infinity_PopMenu(); 
-			if rgGetGameEngine() == 3 then
+			if rgGameEngine == 3 then
 				startEngine:OnCreatePartyButtonClick();
 			else
 				startEngine:OnNewGameButtonClick();
@@ -8439,7 +8589,7 @@ menu
 	}
 	button 
 	{
-		enabled "rgGetGameEngine() ~= 1"
+		enabled "rgGameEngine ~= 1"
 		bam RGPBUT1
 		area 700 610 640 82
 		text style "rg_trajan"
@@ -8450,7 +8600,7 @@ menu
 		text lua "getCampaignButtonTitle()"
 		action 
 		"
-		if rgGetGameEngine() == 0 or rgGetGameEngine() == 3 then
+		if rgGameEngine == 0 or rgGameEngine == 3 then
 			if currCampaign == 0 then
 				currCampaign = 1
 				startEngine:OnTBPButtonClick(true)
@@ -8458,7 +8608,7 @@ menu
 				currCampaign = 0
 				startEngine:OnSoAButtonClick(true)
 			end
-		elseif rgGetGameEngine() == 2 then
+		elseif rgGameEngine == 2 then
 			if currCampaign == 0 then
 				currCampaign = 1
 				startEngine:OnToBButtonClick(true)
@@ -9321,7 +9471,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  ScaleToClip enabled "characters[id].hasSorcererBook == true and rowNumber <= #(characters[id].mageSpells[currentSpellLevel])"} 
-							 label { area	25 25 50 50 bam	lua "bookSpells[rowNumber].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "bookSpells[rowNumber].icon" align	left top  ScaleToClip } }
 		area 170 220 500 100
 		name 		"bookListMage"
 		rowwidth	100
@@ -9335,7 +9485,7 @@ menu
 	list
 	{
 		column {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  ScaleToClip enabled "characters[id].hasSorcererBook == true and rowNumber+5 <= #(characters[id].mageSpells[currentSpellLevel])"} 
-							 label { area	25 25 50 50 bam	lua "bookSpells[rowNumber+5].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "bookSpells[rowNumber+5].icon" align	left top  ScaleToClip } }
 		area 170 320 500 100
 		name 		"bookListMage1"
 		rowwidth	100
@@ -9348,7 +9498,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  ScaleToClip enabled "characters[id].hasSorcererBook == true and rowNumber+10 <= #(characters[id].mageSpells[currentSpellLevel])"} 
-							 label { area	25 25 50 50 bam	lua "bookSpells[rowNumber+10].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "bookSpells[rowNumber+10].icon" align	left top  ScaleToClip } }
 		area 170 420 500 100
 		name 		"bookListMage2"
 		rowwidth	100
@@ -9361,7 +9511,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  ScaleToClip enabled "characters[id].hasSorcererBook == true and rowNumber+15 <= #(characters[id].mageSpells[currentSpellLevel])"} 
-							 label { area	25 25 50 50 bam	lua "bookSpells[rowNumber+15].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "bookSpells[rowNumber+15].icon" align	left top  ScaleToClip } }
 		area 170 520 500 100
 		name 		"bookListMage3"
 		rowwidth	100
@@ -9374,7 +9524,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  ScaleToClip enabled "characters[id].hasSorcererBook == true and rowNumber+20 <= #(characters[id].mageSpells[currentSpellLevel])"} 
-							 label { area	25 25 50 50 bam	lua "bookSpells[rowNumber+20].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "bookSpells[rowNumber+20].icon" align	left top  ScaleToClip } }
 		area 170 620 500 100
 		name 		"bookListMage4"
 		rowwidth	100
@@ -9547,7 +9697,7 @@ menu
 	
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber].castable == 0" } } --opacity lua "rgCastableOpacity(rowNumber)"
 		area 701 220 500 125
 		name 		"memorizedListMage"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -9558,7 +9708,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+4)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+4].castable == 0" } } 
 		area 701 345 500 125
 		name 		"memorizedListMage1"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -9569,7 +9719,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+8)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+8].castable == 0" } }
 		area 701 470 500 125
 		name 		"memorizedListMage2"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -9580,7 +9730,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+12)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+12].castable == 0" } }
 		area 701 595 500 125
 		name 		"memorizedListMage3"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -9772,7 +9922,7 @@ menu
 			{
 				enabled "preparedSpells[rowNumber].spells[1] ~= nil"
 				area	0 0 -1 -1
-				bam	lua "preparedSpells[rowNumber].spells[1].icon"
+				icon	lua "preparedSpells[rowNumber].spells[1].icon"
 				align	center center
 			}
 		}
@@ -9783,7 +9933,7 @@ menu
 			{
 				enabled "preparedSpells[rowNumber].spells[2] ~= nil"
 				area	0 0 -1 -1
-				bam	lua "preparedSpells[rowNumber].spells[2].icon"
+				icon	lua "preparedSpells[rowNumber].spells[2].icon"
 				align	center center
 			}
 		}
@@ -9794,7 +9944,7 @@ menu
 			{
 				enabled "preparedSpells[rowNumber].spells[3] ~= nil"
 				area	0 0 -1 -1
-				bam	lua "preparedSpells[rowNumber].spells[3].icon"
+				icon	lua "preparedSpells[rowNumber].spells[3].icon"
 				align	center center
 			}
 		}
@@ -9845,46 +9995,54 @@ menu
 	label
 	{
 		area 0 0 864 710
-		mosaic "GUIINVHI"
+		rectangle 4
+		rectangle opacity 200
 	}
 	label
 	{
-		area 82 10 700 44
-		text lua "Infinity_FetchString(PopupDetails.title)"
-		text style "title"
+		area 20 20 100 100
+		bam RGPIICO
+		ScaleToClip
 	}
+	--label
+	--{
+	--	area 82 10 700 44
+	--	text lua "Infinity_FetchString(PopupDetails.title)"
+	--	text style "rg_trajan"
+	--	align center center
+	--}
 	label
 	{
-		area 310 65 310 50
+		area 140 20 600 100
 		text lua "Infinity_FetchString(PopupDetails.name)"
-		text style "label"
+		text style "rg_trajan"
+		align left center
 	}
 	text
 	{
-		area 62 178 736 348
+		area 62 130 736 460
 		text lua "Infinity_FetchString(PopupDetails.description)"
-		text style "parchment"
+		text style "normal"
 		scrollbar 'rgpscrl'
 	}
 	label
 	{
-		area 254 65 52 52
+		area 28 28 84 84
 		bam lua "PopupDetails.icon"
 		align center center
 		sequence 0
 	}
 	button
 	{
-		area 326 638 205 44
-		bam GUIOSTUM
-		text "DONE_BUTTON"
-		text style "button"
-		
 		on escape
-		action
-		"
-			Infinity_PopMenu('POPUP_DETAILS')
-		"
+		area 153 600 557 84
+		bam RGPBUT1
+		text "DONE_BUTTON"
+		text style "rg_trajan"
+		align center center
+		pad 30 5 30 5
+		ScaleToClip
+		action "Infinity_PopMenu('POPUP_DETAILS')"
 	}
 
 }
@@ -10266,7 +10424,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  enabled "rowNumber <= #(characters[id].priestSpells[currentSpellLevel])" ScaleToClip }
-							 label { area	25 25 50 50 bam	lua "characters[id].priestSpells[currentSpellLevel][rowNumber].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "characters[id].priestSpells[currentSpellLevel][rowNumber].icon" align	left top  ScaleToClip } }
 		area 170 220 500 100
 		name "bookListPriest"
 		rowwidth	100
@@ -10280,7 +10438,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  enabled "rowNumber+5 <= #(characters[id].priestSpells[currentSpellLevel])" ScaleToClip }
-							 label { area	25 25 50 50 bam	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+5].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+5].icon" align	left top  ScaleToClip } }
 		area 170 320 500 100
 		name "bookListPriest1"
 		rowwidth	100
@@ -10293,7 +10451,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  enabled "rowNumber+10 <= #(characters[id].priestSpells[currentSpellLevel])" ScaleToClip }
-							 label { area	25 25 50 50 bam	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+10].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+10].icon" align	left top  ScaleToClip } }
 		area 170 420 500 100
 		name "bookListPriest2"
 		rowwidth	100
@@ -10306,7 +10464,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  enabled "rowNumber+15 <= #(characters[id].priestSpells[currentSpellLevel])" ScaleToClip }
-							 label { area	25 25 50 50 bam	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+15].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+15].icon" align	left top  ScaleToClip } }
 		area 170 520 500 100
 		name "bookListPriest3"
 		rowwidth	100
@@ -10319,7 +10477,7 @@ menu
 	list
 	{
 		column  {  width 100 label { area	0 0 100 100 bam	 rgpspbck align	left top  enabled "rowNumber+20 <= #(characters[id].priestSpells[currentSpellLevel])" ScaleToClip }
-							 label { area	25 25 50 50 bam	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+20].icon" align	left top  ScaleToClip } }
+							 label { area	18 18 64 64 icon	lua "characters[id].priestSpells[currentSpellLevel][rowNumber+20].icon" align	left top  ScaleToClip } }
 		area 170 620 500 100
 		name "bookListPriest4"
 		rowwidth	100
@@ -10387,7 +10545,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber].castable == 0" } }
 		area 701 220 500 125
 		name "memorizedListPriest"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10399,7 +10557,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+4)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber+4].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+4].castable == 0" } }
 		area 701 345 500 125
 		name "memorizedListPriest1"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10411,7 +10569,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+8)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber+8].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+8].castable == 0" } }
 		area 701 470 500 125
 		name "memorizedListPriest2"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10423,7 +10581,7 @@ menu
 	}
 	list
 	{
-		column  {  width 100 label { area	32 32 61 61 bam	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip opacity lua "rgCastableOpacity(rowNumber+12)" } }
+		column  {  width 100 label { area	24 24 77 77 icon	lua "bottomSpells[rowNumber+12].icon" align	left top  ScaleToClip greyscale lua "bottomSpells[rowNumber+12].castable == 0" } }
 		area 701 595 500 125
 		name "memorizedListPriest3"
 		enabled 	"#bottomSpells ~= 0 and rgSpellDescString == ''"
@@ -10581,6 +10739,33 @@ menu
 			return t('JOURNAL_LABEL')
 		end
 	end
+	function rgSelectQuest(row)
+	
+		if getQuestText(row) == rgGetGameEngineString(31270, 31270, 74295, 37872) then
+			if questDisplay[row].expanded == 1 then
+				return true
+			else
+				return false
+			end
+		else
+			if questEnabled(row) and rgCurrentFinishedQuests(row) and questDisplay[row].expanded == 1 then
+				return true
+			else
+				return false
+			end
+		end
+		
+		
+		if journalMode == const.JOURNAL_MODE_QUESTS then
+			if rgIsCurrentQuests == 1 then
+				return t('QUESTS_LABEL') .. ': ' .. t('CURRENT_LABEL')
+			else
+				return t('QUESTS_LABEL') .. ': ' .. t("OBJECTIVE_FINISHED_NORMAL")
+			end
+		else
+			return t('JOURNAL_LABEL')
+		end
+	end
 `
 menu 
 {
@@ -10646,14 +10831,14 @@ menu
 			width 100
 			label
 			{	
-				enabled "questEnabled(rowNumber) and rgCurrentFinishedQuests(rowNumber) and questDisplay[rowNumber].expanded == 1"
+				enabled "rgSelectQuest(rowNumber)"
 				area 0 0 -1 70
 				bam rgpslct
 				ScaleToClip
 			}
 			label
 			{	
-				enabled "questEnabled(rowNumber) and rgCurrentFinishedQuests(rowNumber)" -- and questDisplay[rowNumber].stateType == const.ENTRY_TYPE_COMPLETE
+				enabled "(questEnabled(rowNumber) and rgCurrentFinishedQuests(rowNumber)) or getQuestText(rowNumber) == rgGetGameEngineString(31270, 31270, 74295, 37872)" -- and questDisplay[rowNumber].stateType == const.ENTRY_TYPE_COMPLETE
 				area 20 0 -1 70
 				text lua "getQuestText(rowNumber)"
 				text style "rg_trajan"
@@ -10925,7 +11110,7 @@ menu
 		area 128 132 548 548	
 		bam 'RGPLOGO'
 		ScaleToClip
-		sequence lua "rgGetGameEngine()"
+		sequence lua "rgGameEngine"
 		--align center center
 		frame lua "currCampaign"
 	}
@@ -11112,7 +11297,7 @@ menu
 		area 72 188 548 548	
 		bam 'RGPLOGO'
 		ScaleToClip
-		sequence lua "rgGetGameEngine()"
+		sequence lua "rgGameEngine"
 		--align center center
 		frame lua "currCampaign"
 	}
@@ -11606,7 +11791,7 @@ function setChapterBackground(id)
 	--chapterBackground = chapterBackgrounds[id]
 end
 function rgGetBackgroundFrame()
-	if rgGetGameEngine() == 3 then --iwd
+	if rgGameEngine == 3 then --iwd
 		return 1
 	else
 		return 0
@@ -15227,7 +15412,7 @@ menu
 	button
 	{
 		name "rgOpenMessagesWide"
-	 	area 3 673 87 87
+	 	area 3 677 87 87
 		bam rgpguils
 		enabled "rgIsUltraWide() == false"
 		sequence 15
@@ -15240,7 +15425,7 @@ menu
 	button
 	{
 		name "rgGroundItemsWide"
-	 	area 90 673 87 87
+	 	area 90 677 87 87
 		bam rgpguils
 		enabled "rgIsUltraWide() == false"
 		sequence 14
@@ -17621,7 +17806,7 @@ menu
 				area 20 0 52 52
 				greyscale lua "chargen.choose_spell[rowNumber].enabled == false"
 				bam lua "spellBook[chargen.currentSpellLevelChoice][chargen.choose_spell[rowNumber].key].groundicon"
-				align center center
+				scaleToClip
 			}
 		}
 		column
@@ -26475,6 +26660,632 @@ menu
 		"
 			Infinity_PopMenu()
 			createCharScreen:OnMainCancelButtonClick()
+		"
+	}
+}
+`
+	contingencySpellType = 0
+	contingencySpellLevel = 1
+	contingencySwapTable = {}
+	function getContingencyTitle()
+		return t(mageBookStrings[contingencyResRef].title)
+	end
+	function getContingencySpellType()
+		local ret = ""
+		
+		if contingencySpellType == 0 then
+			ret = t("MAGE_SPELLS_TITLE")
+		else
+			ret = t("ASSIGN_KEYS_PRIESTSPELLS")
+		end
+
+		return ret
+	end
+	function getContingencySpellLevel()
+		local ret = ""
+		
+		ret = t("LEVEL_LABEL").." "..contingencySpellLevel
+
+		return ret
+	end
+	function getContingencyTypeButtonText()
+		local ret
+
+		if contingencySpellType == 0 then
+			ret = Infinity_FetchString(7204)
+		else
+			ret = Infinity_FetchString(7203)
+		end
+
+		return ret
+	end
+
+
+
+	function filterContingencyMageSpellsIwd()
+		local out = {}
+		if contingencySpellType == 0 then
+			if characters[id].mageSpells ~= nil and characters[id].mageSpells[contingencySpellLevel] ~= nil then
+				for k,v in pairs(characters[id].mageSpells[contingencySpellLevel]) do
+					if v.castableCount > 0 and mageScreen:SpellAllowedForContingency(v.level, v.resref) then
+						tableInsert(out, v)
+					end
+				end
+			end
+		else
+			if characters[id].priestSpells ~= nil and characters[id].priestSpells[contingencySpellLevel] ~= nil then
+				for k,v in pairs(characters[id].priestSpells[contingencySpellLevel]) do
+					if v.castableCount > 0 and mageScreen:SpellAllowedForContingency(v.level, v.resref) then
+						tableInsert(out, v)
+					end
+				end
+			end
+		end
+		return out
+	end
+	function getContingencySpellIcon(slotNumber)
+		local ret = ""
+
+		if slotNumber <= #bookSpells then
+			ret = bookSpells[slotNumber].icon
+		end
+
+		return ret
+	end
+	function getContingencySpellCastableCount(slotNumber)
+		local ret = ""
+
+		if slotNumber <= #bookSpells and bookSpells[slotNumber].castableCount > 1 then
+			ret = bookSpells[slotNumber].castableCount
+		end
+
+		return ret
+	end
+	function contingencyDisplaySpellDescription(slotNumber)
+		if slotNumber <= #bookSpells then
+			contingencyDescription = bookSpells[slotNumber].description
+		end
+	end
+	function contingencyDisplaySetSpellDescription(slotNumber)
+		if slotNumber <= #sequencerSpells then
+			contingencyDescription = sequencerSpells[slotNumber].description
+		end
+	end
+	function changeContingencySpellLevel(changeAmount)
+		local newLevel = contingencySpellLevel + changeAmount
+		if newLevel >= 1 and newLevel <= maxMagePage then
+			contingencySpellLevel = newLevel
+			bookSpells = filterContingencyMageSpellsIwd()
+		end
+	end
+	function swapContingencySpellType()
+		contingencySpellType = 1 - contingencySpellType
+		if contingencySpellType == 0 and contingencySpellLevel > maxMagePage then
+			contingencySpellLevel = maxMagePage
+		elseif contingencySpellType == 1 and contingencySpellLevel > math.min(maxMagePage, 7) then
+			contingencySpellLevel = math.min(maxMagePage, 7)
+		end
+	end
+	function getContingencySetSpellIcon(slotNumber)
+		local ret = ""
+
+		if sequencerSpells ~= nil and #sequencerSpells >= slotNumber then
+			ret = sequencerSpells[slotNumber].icon
+		end
+
+		return ret
+	end
+	function contingencyCompleteIwd()
+		local ret = false
+
+		if showContingency and #sequencerSpells == contingencyMaxSpells and (currentContingencyCondition or 0) > 0 and (currentContingencyTarget or 0) > 0 then
+			ret = true
+		elseif not showContingency and #sequencerSpells == contingencyMaxSpells then
+			ret = true
+		end
+
+		return ret
+	end
+`
+menu
+{
+	name 'CONTINGENCY'
+	align center center
+	modal
+
+	onOpen
+	"
+		currentContingencyCondition = 0
+		currentContingencyTarget = 0
+		contingencySpellType = 0
+		contingencySpellLevel = 1
+		bookSpells = filterContingencyMageSpellsIwd()
+		contingencyDescription = mageBookStrings[contingencyResRef].tip
+	"
+
+	label
+	{
+		area 0 0 1365 768
+		bam "RGBACKG"
+		ScaleToClip
+	}
+	label
+	{
+		area 24 16 1074 44
+		text lua "getContingencyTitle()"
+		text style "rg_trajan"
+		text color "$"
+	}
+
+	label
+	{
+		area 628 75 356 37
+		text "CONDITION_LABEL"
+		enabled 	"showContingency"
+		text style "normal"
+		text align left center
+	}
+	list
+	{
+		column 
+		{ 
+			width 100
+			label
+			{	
+				enabled "rowNumber == currentContingencyCondition"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
+			label
+			{
+				area		10 0 -1 -1
+				text lua "Infinity_FetchString( contingencyConditions[rowNumber].strref)"
+				text style "normal"
+				text align left center
+			}
+		}
+
+		area 628 120 358 246
+		hidehighlight
+		rowheight	40
+		enabled 	"showContingency"
+		table		"contingencyConditions"
+		var		currentContingencyCondition
+		scrollbar	'rgpscrl'
+		action
+		"
+			contingencyDescription = contingencyConditions[currentContingencyCondition].desc
+		"
+
+	}
+
+	label
+	{
+		area 994 75 358 37
+		text "TARGET_LABEL"
+		text style "normal"
+		text align left center
+		enabled 	"showContingency"
+	}
+	list
+	{
+		column 
+		{ 
+			width 100
+			label
+			{	
+				enabled "rowNumber == currentContingencyTarget"
+				area 0 0 -1 -1
+				bam rgpslct
+				ScaleToClip
+			}
+			label
+			{
+				area		10 0 -1 -1
+				text lua "Infinity_FetchString( contingencyTargets[rowNumber].strref)"
+				text style "normal"
+				text align left center
+			}
+		}
+
+		area 994 120 358 246
+		hideHighlight
+		enabled 	"showContingency"
+		rowheight	40
+		table		"contingencyTargets"
+		var		currentContingencyTarget
+		scrollbar	'rgpscrl'
+		action
+		"
+			contingencyDescription = contingencyTargets[currentContingencyTarget].desc
+		"
+	}
+
+	--label
+	--{
+	--	area 128 516 250 49
+	--	text lua "getContingencySpellType()"
+	--	text style "normal"
+	--	text align left center
+	--}
+
+	label
+	{
+		area 412 372 200 49
+		text lua "getContingencySpellLevel()"
+		text style "normal"
+		text align center center
+	}
+	button
+	{
+		area 412 422 100 100
+		bam rgpbtpl
+		scaleToClip
+		action
+		"	
+			changeContingencySpellLevel(1)
+		"
+	}
+	button
+	{
+		area 512 422 100 100
+		bam rgpbtpl
+		scaleToClip
+		sequence 1
+		action
+		"	
+			changeContingencySpellLevel(-1)
+		"
+	}
+	button
+	{
+		area 20 68 558 78
+		bam		RGPBUT1
+		ScaleToClip
+		text lua "getContingencySpellType()" --getContingencyTypeButtonText()
+		text style "rg_trajan"
+		align center center
+		sequenceonce "getRandomButtonSequence('GUIBUTNS')"
+		action
+		"
+			swapContingencySpellType()
+			bookSpells = filterContingencyMageSpellsIwd()
+		"
+	}
+
+	button
+	{
+		area 20 158 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(1)"
+		count lua "getContingencySpellCastableCount(1)"
+		action
+		"
+			contingencyDisplaySpellDescription(1)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[1].resref, bookSpells[1].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(1)
+		"
+	}
+	button
+	{
+		area 120 158 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(2)"
+		count lua "getContingencySpellCastableCount(2)"
+		action
+		"
+			contingencyDisplaySpellDescription(2)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[2].resref, bookSpells[2].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(2)
+		"
+	}
+	button
+	{
+		area 220 158 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(3)"
+		count lua "getContingencySpellCastableCount(3)"
+		action
+		"
+			contingencyDisplaySpellDescription(3)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[3].resref, bookSpells[3].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(3)
+		"
+	}
+	button
+	{
+		area 320 158 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(4)"
+		count lua "getContingencySpellCastableCount(4)"
+		action
+		"
+			contingencyDisplaySpellDescription(4)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[4].resref, bookSpells[4].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(4)
+		"
+	}
+	button
+	{
+		area 420 158 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(5)"
+		count lua "getContingencySpellCastableCount(5)"
+		action
+		"
+			contingencyDisplaySpellDescription(5)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[5].resref, bookSpells[5].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(5)
+		"
+	}
+	button
+	{
+		area 520 158 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(6)"
+		count lua "getContingencySpellCastableCount(6)"
+		action
+		"
+			contingencyDisplaySpellDescription(6)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[6].resref, bookSpells[6].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(6)
+		"
+	}
+	button
+	{
+		area 20 258 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(7)"
+		count lua "getContingencySpellCastableCount(7)"
+		action
+		"
+			contingencyDisplaySpellDescription(7)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[7].resref, bookSpells[7].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(7)
+		"
+	}
+	button
+	{
+		area 120 258 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(8)"
+		count lua "getContingencySpellCastableCount(8)"
+		action
+		"
+			contingencyDisplaySpellDescription(8)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[8].resref, bookSpells[8].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(8)
+		"
+	}
+	button
+	{
+		area 220 258 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(9)"
+		count lua "getContingencySpellCastableCount(9)"
+		action
+		"
+			contingencyDisplaySpellDescription(9)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[9].resref, bookSpells[9].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(9)
+		"
+	}
+	button
+	{
+		area 320 258 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(10)"
+		count lua "getContingencySpellCastableCount(10)"
+		action
+		"
+			contingencyDisplaySpellDescription(10)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[10].resref, bookSpells[10].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(10)
+		"
+	}
+	button
+	{
+		area 420 258 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(11)"
+		count lua "getContingencySpellCastableCount(11)"
+		action
+		"
+			contingencyDisplaySpellDescription(11)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[11].resref, bookSpells[11].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(11)
+		"
+	}
+	button
+	{
+		area 520 258 100 100
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySpellIcon(12)"
+		count lua "getContingencySpellCastableCount(12)"
+		action
+		"
+			contingencyDisplaySpellDescription(12)
+			if #sequencerSpells < contingencyMaxSpells then
+				mageScreen:SequenceSpell( bookSpells[12].resref, bookSpells[12].masterResref )
+			end
+		"
+		actionAlt
+		"
+			contingencyDisplaySpellDescription(12)
+		"
+	}
+
+	button
+	{
+		area 20 411 125 125
+		enabled "contingencyMaxSpells >= 1"
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySetSpellIcon(1)"
+		sequenceonce "getRandomButtonSequence('GUIBTBUT')"
+		action
+		"
+			contingencyDisplaySetSpellDescription(1)
+			mageScreen:UnSequenceSpell( sequencerSpells[1].resref, sequencerSpells[1].masterResref )
+			table.remove(sequencerSpells, 1)
+		"
+		actionAlt
+		"
+			contingencyDisplaySetSpellDescription(1)
+		"
+	}
+	button
+	{
+		area 145 411 125 125
+		enabled "contingencyMaxSpells >= 2"
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySetSpellIcon(2)"
+		sequenceonce "getRandomButtonSequence('GUIBTBUT')"
+		action
+		"
+			contingencyDisplaySetSpellDescription(2)
+			mageScreen:UnSequenceSpell( sequencerSpells[2].resref, sequencerSpells[2].masterResref )
+			table.remove(sequencerSpells, 2)
+		"
+		actionAlt
+		"
+			contingencyDisplaySetSpellDescription(2)
+		"
+	}
+	button
+	{
+		area 270 411 125 125
+		enabled "contingencyMaxSpells >= 3"
+		bam rgpspbck
+		scaleToClip
+		icon lua "getContingencySetSpellIcon(3)"
+		sequenceonce "getRandomButtonSequence('GUIBTBUT')"
+		action
+		"
+			contingencyDisplaySetSpellDescription(3)
+			mageScreen:UnSequenceSpell( sequencerSpells[3].resref, sequencerSpells[3].masterResref )
+			table.remove(sequencerSpells, 3)
+		"
+		actionAlt
+		"
+			contingencyDisplaySetSpellDescription(3)
+		"
+	}
+
+	text
+	{
+		area 628 372 724 382
+		text lua "Infinity_FetchString(contingencyDescription)"
+		text style "normal"
+		scrollbar	'rgpscrl'
+	}
+	--text
+	--{
+	--	area 40 474 770 123
+	--	text lua "Infinity_FetchString(contingencyDescription)"
+	--	text style "normal"
+	--	text align left top
+	--	scrollbar "rgdscrl1"
+	--}
+
+	button
+	{
+		on escape
+		area 20 564 562 86
+		bam		RGPBUT1
+		ScaleToClip
+		text "CANCEL_BUTTON"
+		text style "rg_trajan"
+		align center center
+		action 
+		"
+			mageScreen:CancelSequencingSpells()
+			e:SelectEngine(worldScreen)
+		"
+	}
+	button
+	{
+		on return
+		area 20 658 562 86
+		bam		RGPBUT1
+		ScaleToClip
+		text "DONE_BUTTON"
+		text style "rg_trajan"
+		align center center
+		clickable lua "contingencyCompleteIwd()"
+		action 
+		"
+			mageScreen:DoneSequencingSpells()
+			e:SelectEngine(worldScreen)
 		"
 	}
 }
