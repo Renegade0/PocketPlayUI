@@ -2068,7 +2068,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( scriptOptions[rowNumber][1])"
+				text lua "getUiString( scriptOptions[rowNumber][1])"
 				text style	"normal"
 				text align right center
 			}
@@ -2560,7 +2560,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( toggleTitles[rowNumber][1])"
+				text lua "getUiString( toggleTitles[rowNumber][1])"
 				text style "normal"
 				text align left center
 			}
@@ -2612,7 +2612,7 @@ menu
 	text
 	{
 		area		1016 70 334 604
-		text		lua "t(helpString)"
+		text		lua "getUiString(helpString)"
 		text style	normal
 		text align	left top
 		text point	12
@@ -3022,7 +3022,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( autoPauseToggles[rowNumber][1])"
+				text lua "getUiString( autoPauseToggles[rowNumber][1])"
 				text style "normal"
 				text align left center
 			}
@@ -3081,7 +3081,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( characterPauseToggles[rowNumber][1])"
+				text lua "getUiString( characterPauseToggles[rowNumber][1])"
 				text style "normal"
 				text align left center
 			}
@@ -3330,7 +3330,7 @@ menu
 			label
 			{
 				area 0 0 -1 -1
-				text lua "t( graphicsToggles[rowNumber][1])"
+				text lua "getUiString( graphicsToggles[rowNumber][1])"
 				text style "normal"
 				text align right center
 			}
@@ -3585,7 +3585,7 @@ menu
 			label
 			{
 				area 0 0 -1 -1
-				text lua "t( soundsToggles[rowNumber][1])"
+				text lua "getUiString( soundsToggles[rowNumber][1])"
 				text style "normal"
 				text align right center
 			}
@@ -3656,7 +3656,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( command[rowNumber][1])"
+				text lua "getUiString( command[rowNumber][1])"
 				text style	"normal"
 				text align right center
 			}
@@ -3724,7 +3724,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( selectOpt[rowNumber][1])"
+				text lua "getUiString( selectOpt[rowNumber][1])"
 				text style	"normal"
 				text align right center
 			}
@@ -4155,7 +4155,7 @@ menu
 			label
 			{
 				area 0 0 -1 -1
-				text lua "t( feedbackToggles[rowNumber][1])"
+				text lua "getUiString( feedbackToggles[rowNumber][1])"
 				text style "normal"
 				text align right center
 			}
@@ -4223,7 +4223,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( messagesToggles[rowNumber][1])"
+				text lua "getUiString( messagesToggles[rowNumber][1])"
 				text style	"normal"
 				text align right center
 			}
@@ -4271,7 +4271,7 @@ menu
 	text
 	{
 		area		912 334 420 304
-		text		lua "t(helpString)"
+		text		lua "getUiString(helpString)"
 		text style	normal
 		scrollbar	'rgpscrl'
 	}
@@ -4502,7 +4502,7 @@ menu
 			label
 			{
 				area 0 0 -1 -1
-				text lua "t(keycategories[rowNumber][2])"
+				text lua "getUiString(keycategories[rowNumber][2])"
 				text style	"normal"
 				text align	center center 
 			}
@@ -5256,7 +5256,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 422 569 82
-		text lua "t(Popup2Button.cancelText or 'CANCEL_BUTTON')"
+		text lua "getUiString(Popup2Button.cancelText or 'CANCEL_BUTTON')"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5273,7 +5273,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 522 569 82
-		text lua "t(Popup2Button.okText or 'DONE_BUTTON')"
+		text lua "getUiString(Popup2Button.okText or 'DONE_BUTTON')"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5309,7 +5309,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 322 569 82
-		text lua "t(Popup3Button.rightText)"
+		text lua "getUiString(Popup3Button.rightText)"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5326,7 +5326,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 422 569 82
-		text lua "t(Popup3Button.midText)"
+		text lua "getUiString(Popup3Button.midText)"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5343,7 +5343,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 522 569 82
-		text lua "t(Popup3Button.leftText)"
+		text lua "getUiString(Popup3Button.leftText)"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5379,7 +5379,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 222 569 82
-		text lua "t(Popup4Button.farRightText)"
+		text lua "getUiString(Popup4Button.farRightText)"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5396,7 +5396,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 322 569 82
-		text lua "t(Popup4Button.rightText)"
+		text lua "getUiString(Popup4Button.rightText)"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5413,7 +5413,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 422 569 82
-		text lua "t(Popup4Button.leftText)"
+		text lua "getUiString(Popup4Button.leftText)"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -5430,7 +5430,7 @@ menu
 	{
 		bam			RGPBUT1
 		area		55 522 569 82
-		text lua "t(Popup4Button.farLeftText)"
+		text lua "getUiString(Popup4Button.farLeftText)"
 		text style	"rg_trajan"
 		align center center
 		ScaleToClip
@@ -9884,7 +9884,7 @@ menu
 			label
 			{
 				area	0 0 -1 -1
-				text lua "t(mageBookStrings[preparedSpells[rowNumber].resref].title)"
+				text lua "getUiString(mageBookStrings[preparedSpells[rowNumber].resref].title)"
 				text style "normal"
 				align	left center
 			}
@@ -11372,6 +11372,19 @@ menu
 			e:SelectEngine(startEngine)
 		"
 	}
+	button
+	{
+		bam RGPBUT1
+		area 10 610 640 82
+		text style "rg_trajan"
+		pad 30 5 30 5
+		align center center
+		ScaleToClip
+		text "IMPORT_FOLDER_LABEL"
+		enabled "e:IsAndroid()"
+		clickable lua "e:IsAndroid()"
+		action "Infinity_PushMenu( 'OPTIONS_DATA_FOLDER' )"
+	}
 }
 `
 mapnoteSettings = {}
@@ -12530,7 +12543,7 @@ menu
 	{
 		area 0 664 600 86	
 		bam RGPBUT1
-		text lua "t('IDENTIFY_BUTTON') .. ' (' .. storeScreen:GetIdentifyCost() .. ' gp)'"
+		text lua "getUiString('IDENTIFY_BUTTON') .. ' (' .. storeScreen:GetIdentifyCost() .. ' gp)'"
 		text style "rg_trajan"
 		align center center
 		pad 30 5 30 5
@@ -12896,8 +12909,8 @@ menu
 	{
 		area 0 660 849 96
 		bam RGPBUT1
-		text lua "t('RENT_BUTTON') .. ' (' .. storeScreen:GetRoomCost() .. ' gp)'"
-		--text lua "t('RENT_BUTTON') .. ' (' .. getUiString('COST_LABEL') .. ': ' .. storeScreen:GetRoomCost() .. ')'"
+		text lua "getUiString('RENT_BUTTON') .. ' (' .. storeScreen:GetRoomCost() .. ' gp)'"
+		--text lua "getUiString('RENT_BUTTON') .. ' (' .. getUiString('COST_LABEL') .. ': ' .. storeScreen:GetRoomCost() .. ')'"
 		text style "rg_trajan"
 		align center center
 		pad 30 5 30 5
@@ -13002,7 +13015,7 @@ menu
 	{
 		area 0 664 600 86	
 		bam RGPBUT1
-		text lua "t('BUY_BUTTON') .. ' (' .. storeScreen:GetSpellCost() .. ' gp)'"
+		text lua "getUiString('BUY_BUTTON') .. ' (' .. storeScreen:GetSpellCost() .. ' gp)'"
 		text style "rg_trajan"
 		align center center
 		pad 30 5 30 5
@@ -15658,7 +15671,7 @@ menu
 	{
 		name "worldDialogShowMessagesButton"
 		area 1135 348 180 180
-		tooltip lua "t('LOG_HISTORY_TOOLTIP')"
+		tooltip lua "getUiString('LOG_HISTORY_TOOLTIP')"
 		bam rgpdbtms
 		--sequence 15
 		glow lua "showMessagesButtonFrame()"
@@ -17039,7 +17052,7 @@ menu
 			label
 			{
 				area 0 0 -1 -1
-				text lua "t(chargen.ability[rowNumber].name)"
+				text lua "getUiString(chargen.ability[rowNumber].name)"
 				text style "normal"
 				align right center
 				
@@ -17777,7 +17790,7 @@ menu
 	label
 	{
 		area		16 12 680 52
-		text lua "t(chargen.title) .. ': ' .. getUiString('LEVEL_LABEL') .. ' ' .. chargen.currentSpellLevelChoice"
+		text lua "getUiString(chargen.title) .. ': ' .. getUiString('LEVEL_LABEL') .. ' ' .. chargen.currentSpellLevelChoice"
 		text style	'rg_trajan'
 		text color '$'
 	}
@@ -17861,7 +17874,7 @@ menu
 	{
 		area 588 566 384 38
 		enabled "shouldShowSpecialistMessage()"
-		text lua "t('SPECIALIST_SPELL_REQ')"
+		text lua "getUiString('SPECIALIST_SPELL_REQ')"
 		text style "normal"
 		text align center center
 		rectangle 0
@@ -18885,7 +18898,7 @@ menu
 			label
 			{
 				area 0 0 -1 -1
-				text lua "t( difficulties[rowNumber].name )"
+				text lua "getUiString( difficulties[rowNumber].name )"
 				text style "rg_trajan"
 				text point	10
 				text align center center
@@ -18897,7 +18910,7 @@ menu
 			label
 			{
 				area 10 0 -1 -1
-				text lua "t( difficulties[rowNumber].description )"
+				text lua "getUiString( difficulties[rowNumber].description )"
 				text style "normal"
 				text point	8
 				text align left center
@@ -18937,7 +18950,7 @@ menu
 	{
 		area 712 670 620 80
 		bam RGPBUT1
-		text lua "t('VENTURE_FORTH')"
+		text lua "getUiString('VENTURE_FORTH')"
 		text style "rg_trajan"
 		text align center center
 		ScaleToClip
@@ -19421,28 +19434,28 @@ menu
 	label
 	{
 		area 16 138 602 32
-		text lua "t('GAME_NAME_LABEL')"
+		text lua "getUiString('GAME_NAME_LABEL')"
 		text style "rg_trajan"
 		align center center
 	}
 	label
 	{
 		area 626 138 168 32
-		text lua "t('PASSWORD_LABEL')"
+		text lua "getUiString('PASSWORD_LABEL')"
 		text style "rg_trajan"
 		align center center
 	}
 	label
 	{
 		area 832 138 130 32
-		text lua "t('PLAYERS_LABEL')"
+		text lua "getUiString('PLAYERS_LABEL')"
 		text style "rg_trajan"
 		align center center
 	}
 	label
 	{
 		area 1050 138 222 32
-		text lua "t('GAME_TYPE_LABEL')"
+		text lua "getUiString('GAME_TYPE_LABEL')"
 		text style "rg_trajan"
 		align center center
 	}
@@ -19541,7 +19554,7 @@ menu
 		text style	"rg_trajan"
 		align left center 
 		text		"CONNECTION_NOT_PASSWORD_PROTECTED_LABEL"
-		tooltip lua "t('CONNECTION_NO_PASSWORDS_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_NO_PASSWORDS_TOOLTIP')"
 	}
 	button
 	{
@@ -19549,7 +19562,7 @@ menu
 		bam 		RGRNDBUT
 				ScaleToClip
 		glow lua	"connectionFilterNoPasswords"
-		tooltip lua "t('CONNECTION_NO_PASSWORDS_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_NO_PASSWORDS_TOOLTIP')"
 		action
 		"
 			connectionFilterNoPasswords = 1 - connectionFilterNoPasswords
@@ -19562,7 +19575,7 @@ menu
 		text style	"rg_trajan"
 		align left center 
 		text		"CONNECTION_NOT_FULL_LABEL"
-		tooltip lua "t('CONNECTION_NO_FULL_GAMES_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_NO_FULL_GAMES_TOOLTIP')"
 	}
 	button
 	{
@@ -19570,7 +19583,7 @@ menu
 		bam 		RGRNDBUT
 				ScaleToClip
 		glow lua	"connectionFilterNoFullGames"
-		tooltip lua "t('CONNECTION_NO_FULL_GAMES_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_NO_FULL_GAMES_TOOLTIP')"
 		action
 		"
 			connectionFilterNoFullGames = 1 - connectionFilterNoFullGames
@@ -19601,7 +19614,7 @@ menu
 		align center center
 		pad 30 5 30 5
 		ScaleToClip
-		tooltip lua "t('CONNECTION_DIRECT_CONNECT_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_DIRECT_CONNECT_TOOLTIP')"
 		action
 		"
 			connectionIsHosting = false
@@ -19614,7 +19627,7 @@ menu
 		bam 		'GUMPBUTX'
 		sequence 	2
 		align 		center center
-		tooltip lua "t('CONNECTION_REFRESH_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_REFRESH_TOOLTIP')"
 		action
 		"
 			selectedMp = 0
@@ -19846,7 +19859,7 @@ menu
 		area		179 259 241 45
 		text		style 'label'
 		text		"CONNECTION_PASSWORD_PROTECTED"
-		tooltip lua "t('CONNECTION_PASSWORD_PROTECTED_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_PASSWORD_PROTECTED_TOOLTIP')"
 		align 		left center
 	}
 	button
@@ -19856,7 +19869,7 @@ menu
 				ScaleToClip
 		glow lua	"connectionPasswordProtected"
 		align 		center center
-		tooltip lua "t('CONNECTION_PASSWORD_PROTECTED_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_PASSWORD_PROTECTED_TOOLTIP')"
 		action
 		"
 			connectionPasswordProtected = 1 - connectionPasswordProtected
@@ -19871,7 +19884,7 @@ menu
 		area		179 304 241 45
 		text		style 'label'
 		text		"CONNECTION_LOCAL_NETWORK_GAME"
-		tooltip lua "t('CONNECTION_LOCAL_NETWORK_GAME_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_LOCAL_NETWORK_GAME_TOOLTIP')"
 		align 		left center
 	}
 	button
@@ -19881,7 +19894,7 @@ menu
 				ScaleToClip
 		glow lua	"connectionLocalNetworkGame"
 		align 		center center
-		tooltip lua "t('CONNECTION_LOCAL_NETWORK_GAME_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_LOCAL_NETWORK_GAME_TOOLTIP')"
 		action
 		"
 			if connectionScreen:HasServiceProvider() then
@@ -19988,7 +20001,7 @@ menu
 		bam			'GUIOSTUM'	
 		text style	"button"
 		text		"NEW_GAME_BUTTON"
-		tooltip lua "t('CONNECTION_NEW_GAME_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_NEW_GAME_TOOLTIP')"
 		action		
 		"
 			fromMultiPlayer = true
@@ -20001,7 +20014,7 @@ menu
 		bam			'GUIOSTUM'	
 		text style	"button"
 		text		"LOAD_BUTTON"
-		tooltip lua "t('CONNECTION_LOAD_GAME_TOOLTIP')"
+		tooltip lua "getUiString('CONNECTION_LOAD_GAME_TOOLTIP')"
 		action		
 		"
 			Infinity_PopMenu()
@@ -20975,21 +20988,21 @@ menu
 	label
 	{
 		area 524 92 136 22
-		text lua "t('PLAYER_LABEL')"
+		text lua "getUiString('PLAYER_LABEL')"
 		text style "label"
 		align center center
 	}
 	label
 	{
 		area 660 92 254 22
-		text lua "t('CHARACTER_LABEL')"
+		text lua "getUiString('CHARACTER_LABEL')"
 		text style "label"
 		align center center
 	}
 	label
 	{
 		area 914 92 81 22
-		text lua "t('READY_TO_PLAY_LABEL')"
+		text lua "getUiString('READY_TO_PLAY_LABEL')"
 		text style "label"
 		align center center
 	}
@@ -21020,7 +21033,7 @@ menu
 				frame lua 	"currentCellCheck(1)"
 				align 		center center
 				enabled 	"multiplayerLocalPlayerID == 1 and rowNumber ~= 1"
-				text lua	"t('MULTIPLAYER_CHANGE_PLAYER_BUTTON')"
+				text lua	"getUiString('MULTIPLAYER_CHANGE_PLAYER_BUTTON')"
 				text style 	"button"
 			}
 
@@ -21284,21 +21297,21 @@ menu
 	label
 	{
 		area 40 308 207 25
-		text lua "t('PLAYERS_LABEL')"
+		text lua "getUiString('PLAYERS_LABEL')"
 		text style "label"
 		align center center
 	}
 	label
 	{
 		area 247 308 187 25
-		text lua "t('PARTY_SLOTS_LABEL')"
+		text lua "getUiString('PARTY_SLOTS_LABEL')"
 		text style "label"
 		align center center
 	}
 	label
 	{
 		area 434 308 60 25
-		text lua "t('RULES_LABEL')"
+		text lua "getUiString('RULES_LABEL')"
 		text style "label"
 		align center center
 	}
@@ -21380,7 +21393,7 @@ menu
 		clickable lua	"mpaPlayers[2]['name'] ~= ''"
 		align 			center center
 		enabled 		"multiplayerLocalPlayerID == 1"
-		tooltip lua		"t('MULTIPALYER_KICK_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_KICK_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[2]['name'] ~= '' then
@@ -21396,7 +21409,7 @@ menu
 		clickable lua	"mpaPlayers[3]['name'] ~= ''"
 		align 			center center
 		enabled 		"multiplayerLocalPlayerID == 1"
-		tooltip lua		"t('MULTIPALYER_KICK_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_KICK_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[3]['name'] ~= '' then
@@ -21412,7 +21425,7 @@ menu
 		clickable lua	"mpaPlayers[4]['name'] ~= ''"
 		align 			center center
 		enabled 		"multiplayerLocalPlayerID == 1"
-		tooltip lua		"t('MULTIPALYER_KICK_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_KICK_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[4]['name'] ~= '' then
@@ -21428,7 +21441,7 @@ menu
 		clickable lua	"mpaPlayers[5]['name'] ~= ''"
 		align 			center center
 		enabled 		"multiplayerLocalPlayerID == 1"
-		tooltip lua		"t('MULTIPALYER_KICK_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_KICK_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[5]['name'] ~= '' then
@@ -21444,7 +21457,7 @@ menu
 		clickable lua	"mpaPlayers[6]['name'] ~= ''"
 		align 			center center
 		enabled 		"multiplayerLocalPlayerID == 1"
-		tooltip lua		"t('MULTIPALYER_KICK_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_KICK_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[6]['name'] ~= '' then
@@ -21461,7 +21474,7 @@ menu
 		sequence 		3
 		clickable lua	"mpaPlayers[2]['name'] ~= '' and multiplayerLocalPlayerID == 1"
 		align 			center center
-		tooltip lua		"t('MULTIPALYER_PERMISSION_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_PERMISSION_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[2]['name'] ~= '' then
@@ -21478,7 +21491,7 @@ menu
 		sequence 		3
 		clickable lua	"mpaPlayers[3]['name'] ~= '' and multiplayerLocalPlayerID == 1"
 		align 			center center
-		tooltip lua		"t('MULTIPALYER_PERMISSION_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_PERMISSION_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[3]['name'] ~= '' then
@@ -21495,7 +21508,7 @@ menu
 		sequence 		3
 		clickable lua	"mpaPlayers[4]['name'] ~= '' and multiplayerLocalPlayerID == 1"
 		align 			center center
-		tooltip lua		"t('MULTIPALYER_PERMISSION_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_PERMISSION_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[4]['name'] ~= '' then
@@ -21512,7 +21525,7 @@ menu
 		sequence 		3
 		clickable lua	"mpaPlayers[5]['name'] ~= '' and multiplayerLocalPlayerID == 1"
 		align 			center center
-		tooltip lua		"t('MULTIPALYER_PERMISSION_TOOLTIP')"
+		tooltip lua		"getUiString('MULTIPALYER_PERMISSION_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[5]['name'] ~= '' then
@@ -21529,7 +21542,7 @@ menu
 		sequence 		3
 		clickable lua	"mpaPlayers[6]['name'] ~= '' and multiplayerLocalPlayerID == 1"
 		align 			center center
-		tooltip lua "t('MULTIPALYER_PERMISSION_TOOLTIP')"
+		tooltip lua "getUiString('MULTIPALYER_PERMISSION_TOOLTIP')"
 		action
 		"
 			if mpaPlayers[6]['name'] ~= '' then
@@ -22445,7 +22458,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerPermissions[1][3] == true"
-		tooltip lua "t(multiplayerPermissions[1][2])"
+		tooltip lua "getUiString(multiplayerPermissions[1][2])"
 		action 
 		"
 			if multiplayerLocalPlayerID == 1 then
@@ -22456,8 +22469,8 @@ menu
 	text
 	{
 		area 210 170 212 56
-		text lua "t(multiplayerPermissions[1][1])"
-		tooltip lua "t(multiplayerPermissions[1][2])"
+		text lua "getUiString(multiplayerPermissions[1][1])"
+		tooltip lua "getUiString(multiplayerPermissions[1][2])"
 		text style "normal"
 		align left center
 	}
@@ -22468,7 +22481,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerPermissions[2][3] == true"
-		tooltip lua "t(multiplayerPermissions[2][2])"
+		tooltip lua "getUiString(multiplayerPermissions[2][2])"
 		action 
 		"
 			if multiplayerLocalPlayerID == 1 then
@@ -22479,8 +22492,8 @@ menu
 	text
 	{
 		area 210 226 212 56
-		text lua "t(multiplayerPermissions[2][1])"
-		tooltip lua "t(multiplayerPermissions[2][2])"
+		text lua "getUiString(multiplayerPermissions[2][1])"
+		tooltip lua "getUiString(multiplayerPermissions[2][2])"
 		text style "normal"
 		align left center
 	}
@@ -22491,7 +22504,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerPermissions[3][3] == true"
-		tooltip lua "t(multiplayerPermissions[3][2])"
+		tooltip lua "getUiString(multiplayerPermissions[3][2])"
 		action 
 		"
 			if multiplayerLocalPlayerID == 1 then
@@ -22502,8 +22515,8 @@ menu
 	text
 	{
 		area 210 282 212 56
-		text lua "t(multiplayerPermissions[3][1])"
-		tooltip lua "t(multiplayerPermissions[3][2])"
+		text lua "getUiString(multiplayerPermissions[3][1])"
+		tooltip lua "getUiString(multiplayerPermissions[3][2])"
 		text style "normal"
 		align left center
 	}
@@ -22514,7 +22527,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerPermissions[4][3] == true"
-		tooltip lua "t(multiplayerPermissions[4][2])"
+		tooltip lua "getUiString(multiplayerPermissions[4][2])"
 		action 
 		"
 			if multiplayerLocalPlayerID == 1 then
@@ -22525,8 +22538,8 @@ menu
 	text
 	{
 		area 210 334 212 56
-		text lua "t(multiplayerPermissions[4][1])"
-		tooltip lua "t(multiplayerPermissions[4][2])"
+		text lua "getUiString(multiplayerPermissions[4][1])"
+		tooltip lua "getUiString(multiplayerPermissions[4][2])"
 		text style "normal"
 		align left center
 	}
@@ -22537,7 +22550,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerPermissions[5][3] == true"
-		tooltip lua "t(multiplayerPermissions[5][2])"
+		tooltip lua "getUiString(multiplayerPermissions[5][2])"
 		action 
 		"
 			if multiplayerLocalPlayerID == 1 then
@@ -22548,8 +22561,8 @@ menu
 	text
 	{
 		area 210 390 212 56
-		text lua "t(multiplayerPermissions[5][1])"
-		tooltip lua "t(multiplayerPermissions[5][2])"
+		text lua "getUiString(multiplayerPermissions[5][1])"
+		tooltip lua "getUiString(multiplayerPermissions[5][2])"
 		text style "normal"
 		align left center
 	}
@@ -22560,7 +22573,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerPermissions[6][3] == true"
-		tooltip lua "t(multiplayerPermissions[6][2])"
+		tooltip lua "getUiString(multiplayerPermissions[6][2])"
 		action 
 		"
 			if multiplayerLocalPlayerID == 1 then
@@ -22571,8 +22584,8 @@ menu
 	text
 	{
 		area 210 446 212 56
-		text lua "t(multiplayerPermissions[6][1])"
-		tooltip lua "t(multiplayerPermissions[6][2])"
+		text lua "getUiString(multiplayerPermissions[6][1])"
+		tooltip lua "getUiString(multiplayerPermissions[6][2])"
 		text style "normal"
 		align left center
 	}
@@ -22654,7 +22667,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerGameOptions[1][3] == true"
-		tooltip lua "t(multiplayerGameOptions[1][2])"
+		tooltip lua "getUiString(multiplayerGameOptions[1][2])"
 		action 
 		"
 			multiplayerGameOptions[1][3] = not multiplayerGameOptions[1][3]
@@ -22663,9 +22676,9 @@ menu
 	text
 	{
 		area 178 126 212 55
-		text lua "t(multiplayerGameOptions[1][1])"
+		text lua "getUiString(multiplayerGameOptions[1][1])"
 		text style "normal"
-		tooltip lua "t(multiplayerGameOptions[1][2])"
+		tooltip lua "getUiString(multiplayerGameOptions[1][2])"
 		align left center
 	}
 	button
@@ -22675,7 +22688,7 @@ menu
 		ScaleToClip
 		sequence 0
 		glow lua "multiplayerGameOptions[2][3] == true"
-		tooltip lua "t(multiplayerGameOptions[2][2])"
+		tooltip lua "getUiString(multiplayerGameOptions[2][2])"
 		action 
 		"
 			multiplayerGameOptions[2][3] = not multiplayerGameOptions[2][3]
@@ -22684,9 +22697,9 @@ menu
 	text
 	{
 		area 178 190 212 55
-		text lua "t(multiplayerGameOptions[2][1])"
+		text lua "getUiString(multiplayerGameOptions[2][1])"
 		text style "normal"
-		tooltip lua "t(multiplayerGameOptions[2][2])"
+		tooltip lua "getUiString(multiplayerGameOptions[2][2])"
 		align left center
 	}
 
@@ -22698,7 +22711,7 @@ menu
 		frame lua "currentCellCheck(3)"
 		sequence 0
 		glow lua "multiplayerImportOption == 1"
-		tooltip lua "t('IMPORT_RULES_TOOLTIP')"
+		tooltip lua "getUiString('IMPORT_RULES_TOOLTIP')"
 		action 
 		"
 			multiplayerImportOption = 1
@@ -22707,8 +22720,8 @@ menu
 	text
 	{
 		area 178 330 212 55
-		text lua "t('MULTIPLAYER_IMPORT_CHARACTER_RULES_SEI')"
-		tooltip lua "t('IMPORT_RULES_TOOLTIP')"
+		text lua "getUiString('MULTIPLAYER_IMPORT_CHARACTER_RULES_SEI')"
+		tooltip lua "getUiString('IMPORT_RULES_TOOLTIP')"
 		text style "normal"
 		align left center
 	}
@@ -22720,7 +22733,7 @@ menu
 		frame lua "currentCellCheck(3)"
 		sequence 0
 		glow lua "multiplayerImportOption == 2"
-		tooltip lua "t('IMPORT_RULES_TOOLTIP')"
+		tooltip lua "getUiString('IMPORT_RULES_TOOLTIP')"
 		action 
 		"
 			multiplayerImportOption = 2
@@ -22729,8 +22742,8 @@ menu
 	text
 	{
 		area 178 394 212 55
-		text lua "t('MULTIPLAYER_IMPORT_CHARACTER_RULES_SE')"
-		tooltip lua "t('IMPORT_RULES_TOOLTIP')"
+		text lua "getUiString('MULTIPLAYER_IMPORT_CHARACTER_RULES_SE')"
+		tooltip lua "getUiString('IMPORT_RULES_TOOLTIP')"
 		text style "normal"
 		align left center
 	}
@@ -22742,7 +22755,7 @@ menu
 		frame lua "currentCellCheck(3)"
 		sequence 0
 		glow lua "multiplayerImportOption == 3"
-		tooltip lua "t('IMPORT_RULES_TOOLTIP')"
+		tooltip lua "getUiString('IMPORT_RULES_TOOLTIP')"
 		action 
 		"
 			multiplayerImportOption = 3
@@ -22751,8 +22764,8 @@ menu
 	text
 	{
 		area 178 456 212 56
-		text lua "t('MULTIPLAYER_IMPORT_CHARACTER_RULES_S')"
-		tooltip lua "t('IMPORT_RULES_TOOLTIP')"
+		text lua "getUiString('MULTIPLAYER_IMPORT_CHARACTER_RULES_S')"
+		tooltip lua "getUiString('IMPORT_RULES_TOOLTIP')"
 		text style "normal"
 		align left center
 	}
@@ -23338,7 +23351,7 @@ menu
 		area 104 366 95 38
 		bam "MPCHATAB"
 		enabled "showMpChat"
-		tooltip lua "t('MULTIPLAYER_CHAT_RESIZE_TOOLTIP')"
+		tooltip lua "getUiString('MULTIPLAYER_CHAT_RESIZE_TOOLTIP')"
 		actionDrag
 		"
 			dragMPChat(motionY)
@@ -25240,7 +25253,7 @@ menu
 	text
 	{
 		area 136 24 714 104
-		text lua "t(buttonHelp[currentButtonHelp][8])"
+		text lua "getUiString(buttonHelp[currentButtonHelp][8])"
 		text style	"label"
 		text align left top
 		scrollbar	'rgpscrl'
@@ -27288,4 +27301,184 @@ menu
 			e:SelectEngine(worldScreen)
 		"
 	}
+}
+`
+androidImportingStartTicks = -1
+androidImportingIsDone = true
+androidImportButtonText = getUiString('IMPORT_BUTTON')
+
+function GetAndroidImportButtonText()
+	local currentTicks = Infinity_GetClockTicks()
+	if androidImportingStartTicks > 0 and currentTicks > androidImportingStartTicks + 30 then
+		Infinity_ImportAndroidUserDataFiles()
+		androidImportingIsDone = true
+		androidImportingStartTicks = -1
+		helpString = 'IMPORT_FOLDER_TOOLTIP'
+		return getUiString('IMPORT_PROGRESS_LABEL')
+	end
+	if androidImportingStartTicks > 0 then
+		return getUiString('IMPORT_PROGRESS_LABEL')
+	end
+	return getUiString('IMPORT_BUTTON')
+end
+userDataFolderDisplayText = Infinity_GetUserDataFolder()
+`
+menu
+{
+	name	'OPTIONS_DATA_FOLDER'
+	align center center
+	modal
+	onOpen
+	"
+		helpString = 'IMPORT_FOLDER_TOOLTIP'
+	"
+	button
+	{
+		area 0 0 1365 768
+		bam "RGBACKG"
+		ScaleToClip
+		action
+		"
+			helpString = 'IMPORT_FOLDER_TOOLTIP'
+		"
+	}
+	label
+	{
+		area		16 12 680 52
+		text		"IMPORT_FOLDER_LABEL"
+		text style	'rg_trajan'
+		text color '$'
+	}
+	
+	button
+	{
+		area 68 150 300 44
+		text "IMPORT_FOLDER_LABEL"
+		text style "button"
+		action
+		"
+			helpString = 'IMPORT_FOLDER_TOOLTIP'
+		"
+	}
+	text
+	{
+		area		68 195 888 40
+		text		lua "userDataFolderDisplayText"
+		text style	normal
+		text align	left top
+		text point	12
+		scrollbar	'GUISCRC'
+	}
+	button
+	{
+		bam RGPBUT1
+		area		68 240 300 60
+		text		"IMPORT_SELECT_BUTTON"
+		text style "rg_trajan"
+		ScaleToClip
+		align center center
+		action
+		"
+			helpString = 'IMPORT_FOLDER_TOOLTIP'
+			Infinity_InitiateAndroidUserFolderPicker()
+		"
+	}
+	label
+	{
+		area 374 240 200 20
+		text "PERMISSIONS_BUTTON"
+		text style "title"
+		text align center center
+	}
+	label
+	{
+		area 374 262 200 20
+		text "NO"
+		text style normal
+		text align center center
+		text color D
+		enabled "not Infinity_CanImportAndroidUserDataFiles()"
+	}
+	label
+	{
+		area 374 262 200 20
+		text "YES"
+		text style normal
+		text align center center
+		text color C
+		enabled "Infinity_CanImportAndroidUserDataFiles()"
+	}
+	
+	button
+	{
+		area 68 350 300 44
+		text "IMPORT_TITLE"
+		text style "button"
+		action
+		"
+		"
+	}
+	button
+	{
+		area		68 400 300 60
+		bam RGPBUT1
+		text lua	"GetAndroidImportButtonText()"
+		text style "rg_trajan"
+		ScaleToClip
+		align center center
+		clickable lua "Infinity_CanImportAndroidUserDataFiles() and androidImportingIsDone"
+		action
+		"
+			if androidImportingIsDone then
+				androidImportingStartTicks = Infinity_GetClockTicks()
+				androidImportingIsDone = false
+			end
+		"
+	}
+	button
+	{
+		area 370 350 360 44
+		text lua "getUiString('QUIT_BUTTON') .. ' / ' .. getUiString('RELOAD_LABEL')"
+		text style "button"
+		action
+		"
+		"
+	}
+	button
+	{
+		area		400 400 300 60
+		bam RGPBUT1
+		text		"RELOAD_LABEL"
+		text style "rg_trajan"
+		ScaleToClip
+		align center center
+		action
+		"
+			Infinity_RebootAndroidApp()
+		"
+	}
+	
+	text
+	{
+		area		124 550 800 120
+		text		lua "getUiString(helpString)"
+		text style	normal
+		text align	left top
+		text point	12
+		scrollbar	'GUISCRC'
+	}		
+	button
+	{
+		area 444 682 474 76	
+		bam RGPBUT1
+		text 		"DONE_BUTTON"
+		text style "rg_trajan"
+		ScaleToClip
+		align center center
+		action
+		"
+			Infinity_PopMenu()
+		"
+	}
+
 }
